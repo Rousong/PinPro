@@ -63,19 +63,6 @@
                 </router-link>
               </div>
             </div>
-            <div class="navbar-item has-dropdown is-hoverable">
-              <a class="navbar-link">
-                {{$t("pHeader.BrowserExtensions")}}
-              </a>
-              <div class="navbar-dropdown">
-                <a class="navbar-item" href="https://chrome.google.com/webstore/detail/jmhdcnmfkglikfjafdmdikoonedgijpa/">
-                  Chrome
-                </a>
-                <a class="navbar-item" href="https://addons.mozilla.org/en-US/firefox/addon/add-to-pinry/">
-                  Firefox
-                </a>
-              </div>
-            </div>
           </div>
           <div class="navbar-end">
             <router-link
@@ -107,7 +94,9 @@
                   class="button is-light">
                   {{$t("pHeader.logOut")}}
                 </a>
-                <div
+              </div>
+            </div>
+            <div
               class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link">
                 {{$t("pHeader.language")}}
@@ -122,8 +111,6 @@
                 <a @click="changeLang('en')" class="navbar-item">
                   English
                 </a>
-              </div>
-            </div>
               </div>
             </div>
           </div>
