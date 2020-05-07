@@ -47,7 +47,7 @@
               </a>
               <div class="navbar-dropdown">
                 <router-link
-                  :to="{ name: 'userinfo', params: {username: user.meta.username} }"
+                  :to="{ name: 'profile', params: {username: user.meta.username} }"
                   class="navbar-item">
                   {{$t("pHeader.Userinfo")}}
                 </router-link>
@@ -192,6 +192,7 @@ export default {
         },
       );
     },
+
   },
   beforeMount() {
     this.initializeUser();

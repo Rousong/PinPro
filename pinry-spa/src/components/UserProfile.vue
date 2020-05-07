@@ -79,12 +79,12 @@
       <div class='columns is-mobile is-multiline'>
         <div class='column is-2'>
           <span class='header-icon user-profile-image'>
-            <img alt='' src='http://placehold.it/300x225'>
+            <img class='avatar' :src='editorMeta.user.meta.avatar'>
           </span>
         </div>
         <div class='column is-4-tablet is-10-mobile name'>
           <p>
-            <span class='title is-bold'>Paul Miller</span>
+            <span class='title is-bold'>{{ editorMeta.user.meta.username }}</span>
             <br>
             <a class='button is-primary is-outlined' href='#' id='edit-preferences' style='margin: 5px 0'>
               Edit Preferences
@@ -92,7 +92,7 @@
             <br>
           </p>
           <p class='tagline'>
-            The users profile bio would go here, of course. It could be two lines or more or whatever. We should probably limit the amount of characters to ~500 at most though.
+            {{editorMeta.user.meta.description}}
           </p>
         </div>
         <div class='column is-2-tablet is-4-mobile has-text-centered'>
@@ -354,6 +354,68 @@
 //     $('#edit-preferences-modal').removeClass('is-active');
 //   });
 // });
+
+import API from './api';
+
+function initialData() {
+  return {
+    editorMeta: {
+      user: { loggedIn: false, meta: { username: null } },
+    },
+  };
+}
+export default {
+  name: 'UserProfile',
+  data() {
+    return initialData();
+  },
+  props: {
+    filters: {
+      type: Object,
+      default() {
+        return {
+          userFilter: null,
+        };
+      },
+    },
+  },
+  watch: {
+    filters() {
+      console.log('asdsadasdsadsads');
+      this.reset();
+    },
+  },
+  methods: {
+    initialize() {
+      const self = this;
+      API.User.fetchUserInfo().then(
+        (user) => {
+          if (user === null) {
+            self.editorMeta.user.loggedIn = false;
+            self.editorMeta.user.meta = {};
+          } else {
+            self.editorMeta.user.meta = user;
+            self.editorMeta.user.meta.avatar = `//gravatar.com/avatar/${user.gravatar}`;
+            self.editorMeta.user.loggedIn = true;
+          }
+        },
+      );
+    },
+    reset() {
+      const data = initialData();
+      Object.entries(data).forEach(
+        (kv) => {
+          const [key, value] = kv;
+          this[key] = value;
+        },
+      );
+      this.initialize();
+    },
+  },
+  created() {
+    this.initialize();
+  },
+};
 </script>
 
 <style scoped>

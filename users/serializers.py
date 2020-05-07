@@ -12,6 +12,10 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         fields = (
             'username',
             'email',
+            'gender',
+            'location',
+            'link',
+            'description',
             'gravatar',
             'password',
             'password_repeat',

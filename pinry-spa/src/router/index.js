@@ -8,7 +8,7 @@ import Pins4Id from '../views/Pins4Id.vue';
 import Boards4User from '../views/Boards4User.vue';
 import PinCreate from '../views/PinCreate.vue';
 import Search from '../views/Search.vue';
-import User from '../views/Userinfo.vue';
+import UserInfo from '../views/UserInfo.vue';
 
 Vue.use(VueRouter);
 
@@ -54,9 +54,9 @@ const routes = [
     component: Search,
   },
   {
-    path: '/userinfo/users/:user',
-    name: 'userinfo',
-    component: User,
+    path: '/profile/users/:username',
+    name: 'profile',
+    component: UserInfo,
   },
 ];
 
