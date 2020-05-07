@@ -10,7 +10,7 @@ class UserAdmin(UserAdmin):
     fieldsets = (
         (None, {'fields': ('username', 'password')}),
         (_('自定义字段'), {'fields': ('birthday', 'gender', 'location', 'mobile', 'blood'
-                                 , 'email_verify', 'mobile_verify', 'link')}),
+                                 , 'email_verify', 'mobile_verify', 'link', 'description')}),
         (_('Important dates'), {'fields': ('last_login', 'date_joined')}),
         (_('Personal info'), {'fields': ('first_name', 'last_name', 'email')}),
         (_('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser',

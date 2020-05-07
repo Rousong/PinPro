@@ -43,6 +43,7 @@ class UserInfo(AbstractUser, BaseModel):
     email_verify = models.IntegerField(choices=VERIFY_STATUS, default=0, verbose_name="Email是否已经验证")
     mobile_verify = models.IntegerField(choices=VERIFY_STATUS, default=0, verbose_name="Mobile是否已经验证")
     link = models.URLField('个人网址', blank=True, help_text='提示：网址必须填写以http开头的完整形式')
+    description = models.TextField(null=True, blank=True, max_length=1000, verbose_name="个人简介")
 
     def gravatar(self):
         return hashlib.md5(self.email.encode('utf-8')).hexdigest()
