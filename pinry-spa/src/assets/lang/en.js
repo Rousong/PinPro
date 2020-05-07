@@ -82,4 +82,9 @@ module.exports = {
     placeholderBoard: 'type to search board',
     noResults: 'No results found',
   },
+  pinPreview: {
+    OriginalImage: 'Original Image',
+    GotoPinLink: 'Goto Pin Link',
+    Referer: 'Referer',
+  },
 };

@@ -83,4 +83,9 @@ module.exports = {
     placeholderBoard: 'キーワードを入力してカテゴリーを検索',
     noResults: '結果が見つかりませんでした',
   },
+  pinPreview: {
+    OriginalImage: '元の画像',
+    GotoPinLink: 'ピンリンクに移動',
+    Referer: '画像のリファラー',
+  },
 };

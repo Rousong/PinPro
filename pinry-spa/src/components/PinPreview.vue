@@ -19,7 +19,7 @@
               </div>
               <div class="media-content">
                 <div class="is-pulled-left">
-                  <p class="title is-4 pin-meta-info"><span class="dim">Pinned by </span><span class="author">{{ pinItem.author }}</span></p>
+                  <p class="title is-4 pin-meta-info"><span class="dim">{{$t("pins.PinnedBy")}}</span><span class="author">{{ pinItem.author }}</span></p>
                   <div v-if="hasLiked" class="heart" @click="deleteCollect()"></div>
                   <div v-else class="heartGrey" @click="addCollect()"></div>
                   <p class="subtitle is-6" v-show="pinItem.tags.length > 0">
@@ -35,7 +35,7 @@
                         v-show="pinItem.referer !== null"
                         class="meta-link"
                         type="is-warning">
-                      Referer
+                      {{$t("pinPreview.Referer")}}
                     </b-button>
                   </a>
                   <a :href="pinItem.original_image_url" target="_blank">
@@ -43,14 +43,14 @@
                         v-show="pinItem.original_image_url !== null"
                         class="meta-link"
                         type="is-link">
-                        Original Image
+                        {{$t("pinPreview.OriginalImage")}}
                     </b-button>
                   </a>
                   <b-button
                       @click="closeAndGoTo"
                       class="meta-link"
                       type="is-success">
-                      Goto Pin Link
+                      {{$t("pinPreview.GotoPinLink")}}
                   </b-button>
                 </div>
               </div>

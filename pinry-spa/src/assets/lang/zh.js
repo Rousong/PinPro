@@ -17,7 +17,7 @@ module.exports = {
     Pins: '我的贴图',
   },
   pins: {
-    PinnedBy: '上传人',
+    PinnedBy: '作者',
   },
   pinCreateModal: {
     newPin: '创建新的贴图',
@@ -82,5 +82,10 @@ module.exports = {
     placeholderTag: '选择一个标签来检索',
     placeholderBoard: '输入关键字来搜索分类',
     noResults: '没有找到任何结果',
+  },
+  pinPreview: {
+    OriginalImage: '原始贴图地址',
+    GotoPinLink: '贴图地址',
+    Referer: '来源网站',
   },
 };
