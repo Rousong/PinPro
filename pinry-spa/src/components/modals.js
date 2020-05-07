@@ -3,7 +3,7 @@ import LoginForm from './LoginForm.vue';
 import SignUpForm from './SignUpForm.vue';
 import BoardEdit from './BoardEdit.vue';
 import Add2Board from './pin_edit/Add2Board.vue';
-
+import ProfileSet from './ProfileSet.vue';
 
 function openPinEdit(vm, props = null, onCreated = null) {
   vm.$buefy.modal.open(
@@ -83,6 +83,14 @@ function openSignUp(vm, onSignUpSucceed) {
   });
 }
 
+function openProfileSet(vm) {
+  vm.$buefy.modal.open({
+    parent: vm,
+    component: ProfileSet,
+    hasModalCard: true,
+  });
+}
+
 export default {
   openBoardCreate,
   openBoardEdit,
@@ -90,4 +98,5 @@ export default {
   openPinEdit,
   openLogin,
   openSignUp,
+  openProfileSet,
 };
