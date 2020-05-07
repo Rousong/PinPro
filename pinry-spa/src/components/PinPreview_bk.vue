@@ -1,9 +1,13 @@
 <template>
-  <section class="section" style="background: rgb(255,255,255)">
-  <div class="container">
-    <div class="columns">
-      <div class="column is-6"><img :src="pinItem.large_image_url" alt="">
-      <div class="card-content">
+  <div class="pin-preview-modal">
+    <section>
+        <div class="card">
+          <div class="card-image">
+            <figure class="image">
+              <img :src="pinItem.large_image_url" alt="Image">
+            </figure>
+          </div>
+          <div class="card-content">
             <div class="content">
                 <p class="description title">{{ pinItem.description }}</p>
             </div>
@@ -51,41 +55,10 @@
                 </div>
               </div>
             </div>
-          </div></div>
-
-      <div class="column is-6">
-         <h2 class="title has-text-centered">Comments</h2>
-        <form>
-          <div class="field">
-            <div class="control">
-              <input class="input" type="email" placeholder="Email">
-            </div>
           </div>
-          <div class="field">
-            <div class="select is-fullwidth">
-              <select>
-                <option disabled="" selected="">Select product</option>
-                <option>Product 1</option>
-                <option>Product 2</option>
-                <option>Product 3</option>
-              </select>
-            </div>
-          </div>
-          <div class="field">
-            <div class="control">
-              <textarea class="textarea" rows="3" placeholder="Write something..."></textarea>
-            </div>
-          </div>
-          <div class="field">
-            <div class="control">
-              <button class="button is-primary is-fullwidth" type="submit">Submit</button>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
+        </div>
+    </section>
   </div>
-</section>
 </template>
 
 <script>
