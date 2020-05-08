@@ -4,6 +4,7 @@ import PIL
 from PIL import Image, ImageDraw, ImageFont
 from pinry.settings.base import FONT_PATH
 
+
 @contextmanager
 def open_django_file(fieldfile):
     fieldfile.open()
