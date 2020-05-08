@@ -85,7 +85,7 @@ module.exports = {
   },
   pinPreview: {
     OriginalImage: '元の画像',
-    GotoPinLink: 'ピンリンクに移動',
-    Referer: '画像のリファラー',
+    GotoPinLink: 'ピンリンク',
+    Referer: 'リファラー',
   },
 };
