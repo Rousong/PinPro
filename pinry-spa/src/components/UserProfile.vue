@@ -4,10 +4,10 @@
   <div class='container profile'>
     <div class='section profile-heading'>
       <div class='columns is-mobile is-multiline'>
-        <div class='column is-2'>
-          <span class='header-icon user-profile-image'>
-            <img class='avatar' :src='editorMeta.user.meta.avatar'>
-          </span>
+        <div class='column is-4'>
+          <figure class="image">
+             <img class='avatar' :src='editorMeta.user.meta.avatar'>
+          </figure>
         </div>
         <div class='column is-4-tablet is-10-mobile name'>
           <p>
