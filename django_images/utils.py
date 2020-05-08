@@ -19,31 +19,15 @@ def scale_and_crop_iter(image, options):
     Resize, crop and/or change quality of image.
 
     :param image: Source image file
-    :param type: :class:`django.core.files.images.ImageFile
+    :type image : :class:`django.core.files.images.ImageFile
 
-    :param`options: List of option dictionaries, See scale_and_crop_single
+    :param options: List of option dictionaries, See scale_and_crop_single
     argument names for available keys.
     :type options: list of dict
     """
     with open_django_file(image) as img:
         im = Image.open(img)
-        # im1 = im.convert('RGB')
-        #
-
-        # im = add_text_to_image(im, "aaaaaaaaaaaaaaaaaa")
-        # im.format = "JPEG"
-
-        # if im.mode in ("RGBA", "P"):
-            # im = im.convert("RGB")
-
         im.load()
-
-        # print("======================================")
-        # im = add_text_to_image(im, "bbbbbbbbbbbbbbbbbbbbbbbb")
-        # print(im)
-
-        # if im.mode in ("RGBA", "P"):
-        #     im = im.convert("RGB")
         for opts in options:
             # Use already-loaded file when cropping.
             yield scale_and_crop_single(im, **opts)
@@ -55,7 +39,7 @@ def scale_and_crop_single(image, size, crop=False, upscale=False, quality=None):
     Resize, crop and/or change quality of an image.
 
     :param image: Source image file
-    :param type: :class:`PIL.Image`
+    :type image : :class:`django.core.files.images.ImageFile
 
     :param size: Size as width & height, zero as either means unrestricted
     :type size: tuple of two int
@@ -165,7 +149,6 @@ def add_watermark(image, text, font=watermark_font):
 
     text_size_x, text_size_y = image_draw.textsize(text, font=font)
     # 设置文本文字位置
-    print(rgba_image)
     text_xy = (rgba_image.size[0] - text_size_x, rgba_image.size[1] - text_size_y)
     # 设置文本颜色和透明度
     image_draw.text(text_xy, text, font=font, fill=(128, 128, 128, 180))
