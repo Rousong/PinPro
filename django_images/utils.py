@@ -39,7 +39,7 @@ def scale_and_crop_single(image, size, crop=False, upscale=False, quality=None):
     Resize, crop and/or change quality of an image.
 
     :param image: Source image file
-    :type image : :class:`django.core.files.images.ImageFile
+    :type image: :class:`PIL.Image`
 
     :param size: Size as width & height, zero as either means unrestricted
     :type size: tuple of two int

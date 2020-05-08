@@ -300,7 +300,6 @@ export default {
   },
   watch: {
     filters() {
-      console.log('asdsadasdsadsads');
       this.reset();
     },
   },
