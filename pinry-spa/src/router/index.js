@@ -9,6 +9,7 @@ import Boards4User from '../views/Boards4User.vue';
 import PinCreate from '../views/PinCreate.vue';
 import Search from '../views/Search.vue';
 import UserInfo from '../views/UserInfo.vue';
+import PageNotFound from '../views/PageNotFound.vue';
 
 Vue.use(VueRouter);
 
@@ -58,9 +59,15 @@ const routes = [
     name: 'profile',
     component: UserInfo,
   },
+  {
+    path: '*',
+    name: 'PageNotFound',
+    component: PageNotFound,
+  },
 ];
 
 const router = new VueRouter({
+  mode: 'history',
   routes,
 });
 
