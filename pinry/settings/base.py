@@ -22,6 +22,7 @@ INSTALLED_APPS = [
     'core',
     'users',
     'user_operation.apps.UserOperationConfig',  # 如果要使用app下面的app.py里面的配置，就要添加Config类
+    'comments',
 ]
 
 AUTH_USER_MODEL = 'users.UserInfo'
