@@ -297,6 +297,38 @@ function checkIfLike(pinId) {
 }
 
 
+function getComments(pin = 0, limit = 10) {
+  const url = `${API_PREFIX}comments/?pin=${pin}&limit=${limit}`;
+  console.log(url);
+  return new Promise(
+    (resolve, reject) => {
+      axios.get(url).then(
+        (resp) => {
+          // console.log(resp.data);
+          resolve({ data: { results: resp.data.results, next: null, comment: resp.data } });
+        },
+        error => reject(error),
+      );
+    },
+  );
+}
+
+function createComment(data) {
+  const url = `${API_PREFIX}comments/`;
+  // return axios.post(url, data);
+  return new Promise(
+    (resolve, reject) => {
+      axios.post(url, data).then(
+        (resp) => {
+          console.log('createComment', resp);
+          resolve(resp.data);
+        },
+        error => reject(error),
+      );
+    },
+  );
+}
+
 export default {
   Tag,
   Pin,
@@ -310,4 +342,6 @@ export default {
   getAllLikes,
   checkIfLike,
   User,
+  getComments,
+  createComment,
 };
