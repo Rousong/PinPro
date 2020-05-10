@@ -90,117 +90,118 @@
         </form>
         <div>
           <hr />
-          <div class="box">
-            <article class="media">
-              <div class="media-left">
-                <figure class="image is-64x64">
-                  <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image">
-                </figure>
-              </div>
-              <div class="media-content">
-                <div class="content">
-                  <p>
-                    <strong>Yao怀恩</strong> <small>@Weien</small> <small>31m</small>
-                    <br>
-                    澳门皇家赌场上线啦
-                  </p>
-                </div>
-                <nav class="level is-mobile">
-                  <div class="level-left">
-                    <a class="level-item" aria-label="reply">
-                      <span class="icon is-small">
-                        <i class="fas fa-reply" aria-hidden="true"></i>
-                      </span>
-                    </a>
-                    <a class="level-item" aria-label="retweet">
-                      <span class="icon is-small">
-                        <i class="fas fa-retweet" aria-hidden="true"></i>
-                      </span>
-                    </a>
-                    <a class="level-item" aria-label="like">
-                      <span class="icon is-small">
-                        <i class="fas fa-heart" aria-hidden="true"></i>
-                      </span>
-                    </a>
-                  </div>
-                </nav>
-              </div>
-            </article>
-          </div>
-          <div class="box">
-            <article class="media">
-              <div class="media-left">
-                <figure class="image is-64x64">
-                  <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image">
-                </figure>
-              </div>
-              <div class="media-content">
-                <div class="content">
-                  <p>
-                    <strong>临危</strong> <small>@beforeDanger</small> <small>31m</small>
-                    <br>
-                    好人一生平安
-                  </p>
-                </div>
-                <nav class="level is-mobile">
-                  <div class="level-left">
-                    <a class="level-item" aria-label="reply">
-                      <span class="icon is-small">
-                        <i class="fas fa-reply" aria-hidden="true"></i>
-                      </span>
-                    </a>
-                    <a class="level-item" aria-label="retweet">
-                      <span class="icon is-small">
-                        <i class="fas fa-retweet" aria-hidden="true"></i>
-                      </span>
-                    </a>
-                    <a class="level-item" aria-label="like">
-                      <span class="icon is-small">
-                        <i class="fas fa-heart" aria-hidden="true"></i>
-                      </span>
-                    </a>
-                  </div>
-                </nav>
-              </div>
-            </article>
-          </div>
-          <div class="box">
-            <article class="media">
-              <div class="media-left">
-                <figure class="image is-64x64">
-                  <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image">
-                </figure>
-              </div>
-              <div class="media-content">
-                <div class="content">
-                  <p>
-                    <strong>马啸玉</strong> <small>@LittlePony</small> <small>31m</small>
-                    <br>
-                    会说话就多讲两句
-                  </p>
-                </div>
-                <nav class="level is-mobile">
-                  <div class="level-left">
-                    <a class="level-item" aria-label="reply">
-                      <span class="icon is-small">
-                        <i class="fas fa-reply" aria-hidden="true"></i>
-                      </span>
-                    </a>
-                    <a class="level-item" aria-label="retweet">
-                      <span class="icon is-small">
-                        <i class="fas fa-retweet" aria-hidden="true"></i>
-                      </span>
-                    </a>
-                    <a class="level-item" aria-label="like">
-                      <span class="icon is-small">
-                        <i class="fas fa-heart" aria-hidden="true"></i>
-                      </span>
-                    </a>
-                  </div>
-                </nav>
-              </div>
-            </article>
-          </div>
+<!--          <div class="box">-->
+<!--            <article class="media">-->
+<!--              <div class="media-left">-->
+<!--                <figure class="image is-64x64">-->
+<!--                  <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image">-->
+<!--                </figure>-->
+<!--              </div>-->
+<!--              <div class="media-content">-->
+<!--                <div class="content">-->
+<!--                  <p>-->
+<!--                    <strong>Yao怀恩</strong> <small>@Weien</small> <small>31m</small>-->
+<!--                    <br>-->
+<!--                    澳门皇家赌场上线啦-->
+<!--                  </p>-->
+<!--                </div>-->
+<!--                <nav class="level is-mobile">-->
+<!--                  <div class="level-left">-->
+<!--                    <a class="level-item" aria-label="reply">-->
+<!--                      <span class="icon is-small">-->
+<!--                        <i class="fas fa-reply" aria-hidden="true"></i>-->
+<!--                      </span>-->
+<!--                    </a>-->
+<!--                    <a class="level-item" aria-label="retweet">-->
+<!--                      <span class="icon is-small">-->
+<!--                        <i class="fas fa-retweet" aria-hidden="true"></i>-->
+<!--                      </span>-->
+<!--                    </a>-->
+<!--                    <a class="level-item" aria-label="like">-->
+<!--                      <span class="icon is-small">-->
+<!--                        <i class="fas fa-heart" aria-hidden="true"></i>-->
+<!--                      </span>-->
+<!--                    </a>-->
+<!--                  </div>-->
+<!--                </nav>-->
+<!--              </div>-->
+<!--            </article>-->
+<!--          </div>-->
+<!--          <div class="box">-->
+<!--            <article class="media">-->
+<!--              <div class="media-left">-->
+<!--                <figure class="image is-64x64">-->
+<!--                  <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image">-->
+<!--                </figure>-->
+<!--              </div>-->
+<!--              <div class="media-content">-->
+<!--                <div class="content">-->
+<!--                  <p>-->
+<!--                    <strong>临危</strong> <small>@beforeDanger</small> <small>31m</small>-->
+<!--                    <br>-->
+<!--                    好人一生平安-->
+<!--                  </p>-->
+<!--                </div>-->
+<!--                <nav class="level is-mobile">-->
+<!--                  <div class="level-left">-->
+<!--                    <a class="level-item" aria-label="reply">-->
+<!--                      <span class="icon is-small">-->
+<!--                        <i class="fas fa-reply" aria-hidden="true"></i>-->
+<!--                      </span>-->
+<!--                    </a>-->
+<!--                    <a class="level-item" aria-label="retweet">-->
+<!--                      <span class="icon is-small">-->
+<!--                        <i class="fas fa-retweet" aria-hidden="true"></i>-->
+<!--                      </span>-->
+<!--                    </a>-->
+<!--                    <a class="level-item" aria-label="like">-->
+<!--                      <span class="icon is-small">-->
+<!--                        <i class="fas fa-heart" aria-hidden="true"></i>-->
+<!--                      </span>-->
+<!--                    </a>-->
+<!--                  </div>-->
+<!--                </nav>-->
+<!--              </div>-->
+<!--            </article>-->
+<!--          </div>-->
+<!--          <div class="box">-->
+<!--            <article class="media">-->
+<!--              <div class="media-left">-->
+<!--                <figure class="image is-64x64">-->
+<!--                  <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image">-->
+<!--                </figure>-->
+<!--              </div>-->
+<!--              <div class="media-content">-->
+<!--                <div class="content">-->
+<!--                  <p>-->
+<!--                    <strong>马啸玉</strong> <small>@LittlePony</small> <small>31m</small>-->
+<!--                    <br>-->
+<!--                    会说话就多讲两句-->
+<!--                  </p>-->
+<!--                </div>-->
+<!--                <nav class="level is-mobile">-->
+<!--                  <div class="level-left">-->
+<!--                    <a class="level-item" aria-label="reply">-->
+<!--                      <span class="icon is-small">-->
+<!--                        <i class="fas fa-reply" aria-hidden="true"></i>-->
+<!--                      </span>-->
+<!--                    </a>-->
+<!--                    <a class="level-item" aria-label="retweet">-->
+<!--                      <span class="icon is-small">-->
+<!--                        <i class="fas fa-retweet" aria-hidden="true"></i>-->
+<!--                      </span>-->
+<!--                    </a>-->
+<!--                    <a class="level-item" aria-label="like">-->
+<!--                      <span class="icon is-small">-->
+<!--                        <i class="fas fa-heart" aria-hidden="true"></i>-->
+<!--                      </span>-->
+<!--                    </a>-->
+<!--                  </div>-->
+<!--                </nav>-->
+<!--              </div>-->
+<!--            </article>-->
+<!--          </div>-->
+          <comment-list :pin="pinItem" :user="user"></comment-list>
         </div>
       </div>
     </div>
@@ -211,6 +212,7 @@
 <script>
 import API from './api';
 import modals from './modals';
+import commentList from './Comments.vue';
 
 function initialData() {
   return {
@@ -224,7 +226,8 @@ export default {
   data() {
     return initialData();
   },
-  props: ['pinItem', 'loggedIn'],
+  components: { commentList },
+  props: ['pinItem', 'user'],
   methods: {
     closeAndGoTo() {
       this.$parent.close();
@@ -233,7 +236,7 @@ export default {
       );
     },
     addCollect() { // 点赞
-      if (!this.loggedIn) {
+      if (!this.user.loggedIn) {
         modals.openLogin(this, this.onLoginSucceed);
       }
       API.addLike({
@@ -265,7 +268,7 @@ export default {
     },
   },
   created() {
-    if (this.loggedIn) {
+    if (this.user.loggedIn) {
       this.checkLikeFlg();
     }
   },
