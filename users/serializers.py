@@ -10,6 +10,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = UserInfo
         fields = (
+            'id',
             'username',
             'email',
             'gender',

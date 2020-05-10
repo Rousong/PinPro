@@ -25,7 +25,7 @@ export default {
   a:link{
     color:rgb(2, 80, 22);
   }
-  a:hover,a:active,a:visted{
-    color:white;
+  a:hover,a:active{
+    color:green;
   }
 </style>
