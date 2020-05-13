@@ -297,15 +297,16 @@ function checkIfLike(pinId) {
 }
 
 
-function getComments(pin = 0, limit = 10) {
-  const url = `${API_PREFIX}comments/?pin=${pin}&limit=${limit}`;
+function getComments(pin = 1, page = 0, limit = 0) {
+  const url = `${API_PREFIX}comments/?pin=${pin}&page=${page}&limit=${limit}`;
   console.log(url);
   return new Promise(
     (resolve, reject) => {
       axios.get(url).then(
         (resp) => {
-          // console.log(resp.data);
-          resolve({ data: { results: resp.data.results, next: null, comment: resp.data } });
+          console.log('resp.data', resp.data);
+          resolve(resp.data);
+          // console.log(data);
         },
         error => reject(error),
       );
