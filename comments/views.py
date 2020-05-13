@@ -3,12 +3,15 @@ from rest_framework.response import Response
 
 from .models import Comment
 from .serializers import CommentSerializer
+from .pagination import Pagination
 
 
 class CommentViewSet(viewsets.ModelViewSet):
     '''评论视图'''
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
+    # 指定自定义的分页class 这个会覆盖settings里面的分页设置
+    pagination_class = Pagination
     filter_fields = '__all__'
 
     def create(self, request, *args, **kwargs):
