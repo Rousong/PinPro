@@ -61,146 +61,35 @@
 
       <div class="column is-6">
          <h2 class="title has-text-centered">Comments</h2>
-        <form>
-          <div class="field">
-            <div class="control">
-              <input class="input" type="email" placeholder="Email">
-            </div>
-          </div>
-<!--          <div class="field">-->
-<!--            <div class="select is-fullwidth">-->
-<!--              <select>-->
-<!--                <option disabled="" selected="">Select product</option>-->
-<!--                <option>Product 1</option>-->
-<!--                <option>Product 2</option>-->
-<!--                <option>Product 3</option>-->
-<!--              </select>-->
-<!--            </div>-->
-<!--          </div>-->
-          <div class="field">
-            <div class="control">
-              <textarea class="textarea" rows="3" placeholder="Write something..."></textarea>
-            </div>
-          </div>
-          <div class="field">
-            <div class="control">
-              <button class="button is-primary is-fullwidth" type="submit">Submit</button>
-            </div>
-          </div>
-        </form>
         <div>
           <hr />
-<!--          <div class="box">-->
-<!--            <article class="media">-->
-<!--              <div class="media-left">-->
-<!--                <figure class="image is-64x64">-->
-<!--                  <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image">-->
-<!--                </figure>-->
-<!--              </div>-->
-<!--              <div class="media-content">-->
-<!--                <div class="content">-->
-<!--                  <p>-->
-<!--                    <strong>Yao怀恩</strong> <small>@Weien</small> <small>31m</small>-->
-<!--                    <br>-->
-<!--                    澳门皇家赌场上线啦-->
-<!--                  </p>-->
-<!--                </div>-->
-<!--                <nav class="level is-mobile">-->
-<!--                  <div class="level-left">-->
-<!--                    <a class="level-item" aria-label="reply">-->
-<!--                      <span class="icon is-small">-->
-<!--                        <i class="fas fa-reply" aria-hidden="true"></i>-->
-<!--                      </span>-->
-<!--                    </a>-->
-<!--                    <a class="level-item" aria-label="retweet">-->
-<!--                      <span class="icon is-small">-->
-<!--                        <i class="fas fa-retweet" aria-hidden="true"></i>-->
-<!--                      </span>-->
-<!--                    </a>-->
-<!--                    <a class="level-item" aria-label="like">-->
-<!--                      <span class="icon is-small">-->
-<!--                        <i class="fas fa-heart" aria-hidden="true"></i>-->
-<!--                      </span>-->
-<!--                    </a>-->
-<!--                  </div>-->
-<!--                </nav>-->
-<!--              </div>-->
-<!--            </article>-->
-<!--          </div>-->
-<!--          <div class="box">-->
-<!--            <article class="media">-->
-<!--              <div class="media-left">-->
-<!--                <figure class="image is-64x64">-->
-<!--                  <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image">-->
-<!--                </figure>-->
-<!--              </div>-->
-<!--              <div class="media-content">-->
-<!--                <div class="content">-->
-<!--                  <p>-->
-<!--                    <strong>临危</strong> <small>@beforeDanger</small> <small>31m</small>-->
-<!--                    <br>-->
-<!--                    好人一生平安-->
-<!--                  </p>-->
-<!--                </div>-->
-<!--                <nav class="level is-mobile">-->
-<!--                  <div class="level-left">-->
-<!--                    <a class="level-item" aria-label="reply">-->
-<!--                      <span class="icon is-small">-->
-<!--                        <i class="fas fa-reply" aria-hidden="true"></i>-->
-<!--                      </span>-->
-<!--                    </a>-->
-<!--                    <a class="level-item" aria-label="retweet">-->
-<!--                      <span class="icon is-small">-->
-<!--                        <i class="fas fa-retweet" aria-hidden="true"></i>-->
-<!--                      </span>-->
-<!--                    </a>-->
-<!--                    <a class="level-item" aria-label="like">-->
-<!--                      <span class="icon is-small">-->
-<!--                        <i class="fas fa-heart" aria-hidden="true"></i>-->
-<!--                      </span>-->
-<!--                    </a>-->
-<!--                  </div>-->
-<!--                </nav>-->
-<!--              </div>-->
-<!--            </article>-->
-<!--          </div>-->
-<!--          <div class="box">-->
-<!--            <article class="media">-->
-<!--              <div class="media-left">-->
-<!--                <figure class="image is-64x64">-->
-<!--                  <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image">-->
-<!--                </figure>-->
-<!--              </div>-->
-<!--              <div class="media-content">-->
-<!--                <div class="content">-->
-<!--                  <p>-->
-<!--                    <strong>马啸玉</strong> <small>@LittlePony</small> <small>31m</small>-->
-<!--                    <br>-->
-<!--                    会说话就多讲两句-->
-<!--                  </p>-->
-<!--                </div>-->
-<!--                <nav class="level is-mobile">-->
-<!--                  <div class="level-left">-->
-<!--                    <a class="level-item" aria-label="reply">-->
-<!--                      <span class="icon is-small">-->
-<!--                        <i class="fas fa-reply" aria-hidden="true"></i>-->
-<!--                      </span>-->
-<!--                    </a>-->
-<!--                    <a class="level-item" aria-label="retweet">-->
-<!--                      <span class="icon is-small">-->
-<!--                        <i class="fas fa-retweet" aria-hidden="true"></i>-->
-<!--                      </span>-->
-<!--                    </a>-->
-<!--                    <a class="level-item" aria-label="like">-->
-<!--                      <span class="icon is-small">-->
-<!--                        <i class="fas fa-heart" aria-hidden="true"></i>-->
-<!--                      </span>-->
-<!--                    </a>-->
-<!--                  </div>-->
-<!--                </nav>-->
-<!--              </div>-->
-<!--            </article>-->
-<!--          </div>-->
+          <div class="box">
+            <article class="media">
+              <div class="media-left">
+                <figure class="image is-32x32">
+                  <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image">
+                </figure>
+              </div>
+              <div class="media-content">
+                <div class="content">
+                  <p>
+                    <strong>Yao怀恩</strong> <small>@Weien</small> <small>31m</small>
+                    <br>
+                    澳门皇家赌场上线啦
+                  </p>
+                </div>
+                <nav class="level is-mobile">
+                  <div class="level-left">
+                    <a class="level-item" aria-label="reply">
+                      <span class="icon is-small">
+                        <i class="fas fa-reply" aria-hidden="true"></i>
+                      </span>
+                    </a>
+                  </div>
+                </nav>
+              </div>
+            </article>
+          </div>
           <comment-list :pin="pinItem" :user="user"></comment-list>
         </div>
       </div>

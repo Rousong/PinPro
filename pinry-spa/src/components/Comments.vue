@@ -4,35 +4,38 @@
       <span>{{ total }} 条评论</span>
       <button type="primary" :loading="loading" @click="refreshComments">刷新评论</button>
     </div>
+    <div>
+    <div class="field">
+            <div class="control">
+              <strong>{{form.author}}</strong>
+              <textarea v-model="form.content" :options="{hideModeSwitch:true,previewStyle:'tab'}"  class="textarea" rows="2" placeholder="Write something..."></textarea>
+              <p>{{message}}</p>
+            </div>
+          </div>
+          <div class="field">
+            <div class="control">
+              <button class="button is-primary is-fullwidth" @click="onSubmit(form)">Submit</button>
+            </div>
+          </div>
+    </div>
     <div v-for="(item, i) in comments" :key="i" class="item">
-      <comment-detail :comment="item" />
+      <comment-detail :comment="item" @click="showCommentModal(item.id, item.content, 2)"/>
       <div class="item-comment">
         <div class="message">
           <!-- 第二层回复 -->
-          <button size="small" @click="showCommentModal(item.id, item.content, 2)">回复</button>
+          <button class="button is-primary"  @click="showCommentModal(item.id, item.content, 2)">回复</button>
         </div>
       </div>
       <div v-for="(e, i2) in item.sub_comment" :key="i2" class="item-other">
         <comment-detail :comment="e" />
         <!-- 第三层回复 -->
-        <button size="small" @click="showCommentModal(e.id, e.content, 3)">回复</button>
+        <button class="button is-primary" size="small" @click="showCommentModal(e.id, e.content, 3)">回复</button>
         <div v-for="(j, i3) in e.sub_comment" :key="i3" class="item-other">
           <comment-detail :comment="j" />
         </div>
       </div>
     </div>
            <Pagination :page-config="pageConfigTotal" @changeCurrentPage="changePage"></Pagination>
-    <div :body-style="{ padding: '5px', height: '300px' }">
-      <div slot="header">
-        <span>欢迎评论：</span>
-      </div>
-      <!-- card body -->
-      <div>
-    <input v-model="form.author" placeholder="用户名" />
-    <input v-model="form.content" :options="{hideModeSwitch:true,previewStyle:'tab'}" height="180px" />
-    </div>
-      <button type="primary" @click="onSubmit(form)">立即评论</button>
-    </div>
 <!--    =================================-->
     <div
       :visible.sync="seen"
@@ -59,20 +62,21 @@ export default {
   components: { CommentDetail, Pagination },
   data() {
     return {
+      message: null,
       seen: false,
       comments: [],
       total: 0,
       id: this.pin.id,
       form: {
-        content: 'sm syi**sorry**',
-        author: this.user.meta.id,
+        content: '',
+        author: this.user.meta.username,
         pin: this.pin.id,
       },
       sub_content: null,
       level: null,
       sub_form: {
         content: '子评论content',
-        author: this.user.meta.id,
+        author: this.user.meta.username,
         parent_comment: null,
       },
       pageConfigTotal: {
@@ -116,6 +120,10 @@ export default {
       this.seen = true;
     },
     onSubmit(comment) {
+      if (comment.content === '') {
+        this.message = 'wocaomeitian';
+        return;
+      }
       API.createComment(comment).then((resp) => {
         // this.$message({
         //   message: '保存成功',
@@ -153,12 +161,15 @@ export default {
             }
           });
         }
+        this.message = null;
+        this.form.content = null;
       });
     },
     refreshComments() {
       this.getList(this.listQuery);
     },
     changePage(page) {
+      this.listQuery.page = page;
       this.getList(this.listQuery.pin, page, this.listQuery.limit);
     },
   },
@@ -241,9 +252,9 @@ export default {
   }
 }
 .item-other {
-  margin: 20px;
-  padding: 10px;
-  border-left: 2px solid #f0f0f0;
+  margin: 10px;
+  padding: 5px;
+  border-left: 1px solid #f0f0f0;
   .item-header {
     position: relative;
     padding-left: 45px;
