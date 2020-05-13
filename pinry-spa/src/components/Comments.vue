@@ -21,13 +21,7 @@
         </div>
       </div>
     </div>
-<!--    <pagination-->
-<!--      v-show="total>0"-->
-<!--      :total="total"-->
-<!--      :page.sync="listQuery.page"-->
-<!--      :limit.sync="listQuery.limit"-->
-<!--      @pagination="getList"-->
-<!--    />-->
+           <Pagination :page-config="pageConfigTotal" @changeCurrentPage="changePage"></Pagination>
     <div :body-style="{ padding: '5px', height: '300px' }">
       <div slot="header">
         <span>欢迎评论：</span>
@@ -58,10 +52,11 @@
 <script>
 import API from './api';
 import CommentDetail from './CommentDetail.vue';
+import Pagination from './Pagination.vue';
 
 export default {
   name: 'Comments',
-  components: { CommentDetail },
+  components: { CommentDetail, Pagination },
   data() {
     return {
       seen: false,
@@ -80,7 +75,14 @@ export default {
         author: this.user.meta.id,
         parent_comment: null,
       },
+      pageConfigTotal: {
+        total: 10,
+        pageSize: 5,
+        pageNo: 1,
+      },
       listQuery: {
+        page: 1,
+        limit: 5,
         pin: null,
       },
       loading: false,
@@ -96,11 +98,12 @@ export default {
       this.listQuery.pin = this.pin.id;
       console.log(listQuery);
       this.loading = true;
-      API.getComments(this.listQuery.pin).then((resp) => {
-        this.comments = resp.data.results;
-        console.log(this.comments);
+      API.getComments(this.listQuery.pin, this.listQuery.page, this.listQuery.limit).then((resp) => {
+        this.comments = resp.data.items;
+        console.log('comments', resp.data.items);
         this.total = resp.data.total;
-        console.log(this.total);
+        this.pageConfigTotal.total = resp.data.total;
+        console.log('total', resp.data.total);
         setTimeout(() => {
           this.loading = false;
         }, 200);
@@ -154,6 +157,9 @@ export default {
     },
     refreshComments() {
       this.getList(this.listQuery);
+    },
+    changePage(page) {
+      this.getList(this.listQuery.pin, page, this.listQuery.limit);
     },
   },
 };
