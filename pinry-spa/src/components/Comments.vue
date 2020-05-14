@@ -19,19 +19,26 @@
           </div>
     </div>
     <div v-for="(item, i) in comments" :key="i" class="item">
-      <comment-detail :comment="item" @click="showCommentModal(item.id, item.content, 2)"/>
+      <comment-detail :comment="item"/>
       <div class="item-comment">
-        <div class="message">
           <!-- 第二层回复 -->
-          <button class="button is-primary"  @click="showCommentModal(item.id, item.content, 2)">回复</button>
+         <div class="time">
+          {{ item.published| formatDate('yyyy-MM-dd hh:mm:ss') }}
+           <button class="button is-primary is-small is-outlined"  @click="showCommentModal(item.id, item.content, 2)">回复</button>
         </div>
       </div>
       <div v-for="(e, i2) in item.sub_comment" :key="i2" class="item-other">
         <comment-detail :comment="e" />
         <!-- 第三层回复 -->
-        <button class="button is-primary" size="small" @click="showCommentModal(e.id, e.content, 3)">回复</button>
+        <div class="time">
+          {{ e.published| formatDate('yyyy-MM-dd hh:mm:ss') }}
+           <button class="button is-primary is-small is-outlined"  @click="showCommentModal(e.id, e.content, 3)">回复</button>
+        </div>
         <div v-for="(j, i3) in e.sub_comment" :key="i3" class="item-other">
-          <comment-detail :comment="j" />
+          <comment-detail :comment="j"/>
+          <div class="time">
+          {{ j.published| formatDate('yyyy-MM-dd hh:mm:ss') }}
+        </div>
         </div>
       </div>
     </div>
@@ -95,6 +102,7 @@ export default {
   props: ['pin', 'user'],
   created() {
     this.getList(this.listQuery);
+    console.log('user', this.user);
     console.log(this.pin);
   },
   methods: {
@@ -206,7 +214,7 @@ export default {
     border-bottom: 1px solid #f0f0f0;
   }
   .item {
-    padding: 20px 0 30px;
+    padding: 10px 0 15px;
     border-bottom: 1px solid #f0f0f0;
     .item-header {
       position: relative;
@@ -252,8 +260,8 @@ export default {
   }
 }
 .item-other {
-  margin: 10px;
-  padding: 5px;
+  margin: 5px;
+  padding-left: 20px;
   border-left: 1px solid #f0f0f0;
   .item-header {
     position: relative;

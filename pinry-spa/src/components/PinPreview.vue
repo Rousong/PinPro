@@ -62,34 +62,6 @@
       <div class="column is-6">
          <h2 class="title has-text-centered">Comments</h2>
         <div>
-          <hr />
-          <div class="box">
-            <article class="media">
-              <div class="media-left">
-                <figure class="image is-32x32">
-                  <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image">
-                </figure>
-              </div>
-              <div class="media-content">
-                <div class="content">
-                  <p>
-                    <strong>Yao怀恩</strong> <small>@Weien</small> <small>31m</small>
-                    <br>
-                    澳门皇家赌场上线啦
-                  </p>
-                </div>
-                <nav class="level is-mobile">
-                  <div class="level-left">
-                    <a class="level-item" aria-label="reply">
-                      <span class="icon is-small">
-                        <i class="fas fa-reply" aria-hidden="true"></i>
-                      </span>
-                    </a>
-                  </div>
-                </nav>
-              </div>
-            </article>
-          </div>
           <comment-list :pin="pinItem" :user="user"></comment-list>
         </div>
       </div>
