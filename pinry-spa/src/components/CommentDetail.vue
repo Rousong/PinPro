@@ -8,8 +8,10 @@
         </div>
       </div>
       <div class="info">
-        <div class="name">
-          <strong>{{ comment.author }}</strong>
+        <div class="name" data-dismiss="modal">
+          <router-link :to="{ name: 'user', params: {user: comment.author} }">
+            <strong @click="closeAndGoTo">{{ comment.author }}</strong>
+          </router-link>
         </div>
       </div>
     </div>
@@ -18,6 +20,7 @@
 </template>
 
 <script>
+
 export default {
   props: {
     comment: {
@@ -28,6 +31,15 @@ export default {
   methods: {
     marked(content) {
       return content;
+    },
+    closeAndGoTo() {
+      this.$buefy.dialog.confirm({
+        message: '查看该用户的作品?',
+        onConfirm: () => {
+          this.$parent.$parent.$parent.close();
+          this.$router.push({ name: 'user', params: { user: this.comment.author } });
+        },
+      });
     },
   },
 };

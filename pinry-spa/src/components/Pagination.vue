@@ -117,7 +117,7 @@ export default {
       }
       &.active{
         cursor: not-allowed;
-        background-color: #409eff;
+        background-color: #00d1b2;
         color: #fff;
       }
     }

@@ -58,12 +58,8 @@
               </div>
           </div>
       </div>
-
       <div class="column is-6">
-         <h2 class="title has-text-centered">Comments</h2>
-        <div>
           <comment-list :pin="pinItem" :user="user"></comment-list>
-        </div>
       </div>
     </div>
   </div>
@@ -91,6 +87,7 @@ export default {
   props: ['pinItem', 'user'],
   methods: {
     closeAndGoTo() {
+      alert(this.$parent);
       this.$parent.close();
       this.$router.push(
         { name: 'pin', params: { pinId: this.pinItem.id } },
@@ -126,6 +123,9 @@ export default {
       }).catch((error) => {
         console.log(error);
       });
+    },
+    onLoginSucceed() {
+      this.initializeUser(true);
     },
   },
   created() {

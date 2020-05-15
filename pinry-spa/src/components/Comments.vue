@@ -2,9 +2,9 @@
   <div class="comment-list">
     <div class="top-title">
       <span>{{ total }} 条评论</span>
-      <button type="primary" :loading="loading" @click="refreshComments">刷新评论</button>
+      <button class="button is-primary is-small is-outlined" :loading="loading" @click="refreshComments">刷新评论</button>
     </div>
-    <div>
+    <div v-if="this.user.loggedIn">
     <div class="field">
             <div class="control">
               <strong>{{form.author}}</strong>
@@ -17,6 +17,9 @@
               <button class="button is-primary is-fullwidth" @click="onSubmit(form)">Submit</button>
             </div>
           </div>
+    </div>
+    <div v-else>
+      <button class="button is-danger is-fullwidth"  @click="logIn">登陆后评论</button>
     </div>
     <div v-for="(item, i) in comments" :key="i" class="item">
       <comment-detail :comment="item"/>
@@ -42,20 +45,32 @@
         </div>
       </div>
     </div>
-           <Pagination :page-config="pageConfigTotal" @changeCurrentPage="changePage"></Pagination>
-<!--    =================================-->
-    <div
-      :visible.sync="seen"
-      width="90%"
-      @close="!seen"
-    >
-      <span>回复给：{{ sub_content }}</span>
-       <div>
-    <input v-model="sub_form.author" placeholder="用户名" />
-    <input v-model="sub_form.content" :options="{hideModeSwitch:true,previewStyle:'tab'}" height="180px" />
-  </div>
-      <button type="primary" @click="onSubmit(sub_form)">立即回复</button>
+    <div>
+      <Pagination :page-config="pageConfigTotal" @changeCurrentPage="changePage"></Pagination>
     </div>
+    <div class="modal" :class="{ 'is-active': isActive }">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title"><span>回复给：{{ sub_content }}</span></p>
+      <button class="delete" aria-label="close" @click="close"></button>
+    </header>
+    <section class="modal-card-body">
+      <!-- Content ... -->
+      <div class="field">
+            <div class="control">
+              <strong>{{sub_form.author}}</strong>
+              <textarea v-model="sub_form.content"  class="textarea" rows="2" placeholder="Write something..."></textarea>
+              <p>{{message}}</p>
+            </div>
+          </div>
+    </section>
+    <footer class="modal-card-foot">
+      <button class="button is-primary" @click="onSubmit(sub_form)">Submit</button>
+      <button class="button" @click="close()">Cancel</button>
+    </footer>
+  </div>
+</div>
   </div>
 </template>
 
@@ -63,14 +78,15 @@
 import API from './api';
 import CommentDetail from './CommentDetail.vue';
 import Pagination from './Pagination.vue';
+import modals from './modals';
 
 export default {
   name: 'Comments',
   components: { CommentDetail, Pagination },
   data() {
     return {
+      isActive: false,
       message: null,
-      seen: false,
       comments: [],
       total: 0,
       id: this.pin.id,
@@ -82,7 +98,7 @@ export default {
       sub_content: null,
       level: null,
       sub_form: {
-        content: '子评论content',
+        content: '',
         author: this.user.meta.username,
         parent_comment: null,
       },
@@ -102,7 +118,7 @@ export default {
   props: ['pin', 'user'],
   created() {
     this.getList(this.listQuery);
-    console.log('user', this.user);
+    console.log('user', this.user.loggedIn);
     console.log(this.pin);
   },
   methods: {
@@ -122,10 +138,16 @@ export default {
       });
     },
     showCommentModal(parentCommentId, subContent, level) {
-      this.sub_form.parent_comment = parentCommentId;
-      this.sub_content = subContent;
-      this.level = level;
-      this.seen = true;
+      if (!this.user.loggedIn) {
+        modals.openLogin(this, this.onLoginSucceed);
+      } else {
+        this.isActive = true;
+        this.sub_form.parent_comment = parentCommentId;
+        this.sub_content = subContent;
+        this.level = level;
+        this.sub_form.content = '';
+        console.log('this.sub_contentt', this.sub_content);
+      }
     },
     onSubmit(comment) {
       if (comment.content === '') {
@@ -139,7 +161,6 @@ export default {
         //   showClose: true,
         //   duration: 1000,
         // });
-        this.seen = false;
         const data = resp.items;
         console.log('data ', data);
         if (comment.pin) {
@@ -171,6 +192,7 @@ export default {
         }
         this.message = null;
         this.form.content = null;
+        this.isActive = false;
       });
     },
     refreshComments() {
@@ -179,6 +201,15 @@ export default {
     changePage(page) {
       this.listQuery.page = page;
       this.getList(this.listQuery.pin, page, this.listQuery.limit);
+    },
+    logIn() {
+      modals.openLogin(this, this.onLoginSucceed);
+    },
+    close() {
+      this.isActive = false;
+    },
+    onLoginSucceed() {
+      this.initializeUser(true);
     },
   },
 };
