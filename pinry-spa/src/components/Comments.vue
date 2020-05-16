@@ -247,38 +247,9 @@ export default {
   .item {
     padding: 10px 0 15px;
     border-bottom: 1px solid #f0f0f0;
-    .item-header {
-      position: relative;
-      padding-left: 45px;
-      padding-bottom: 10px;
-      .author {
-        position: absolute;
-        left: 0;
-        display: inline-block;
-        .avatar {
-          display: inline-block;
-          margin-right: 5px;
-          width: 40px;
-          height: 40px;
-          vertical-align: middle;
-          img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-          }
-        }
-      }
-      .info {
-        display: inline-block;
-        .name {
-          font-size: 15px;
-          color: #333;
-        }
-        .time {
-          font-size: 12px;
-          color: #969696;
-        }
-      }
+    .time {
+      font-size: 5px;
+      color: #969696;
     }
     .comment-detail {
       min-height: 40px;

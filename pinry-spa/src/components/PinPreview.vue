@@ -2,7 +2,7 @@
   <section class="section" style="background: rgb(255,255,255)">
   <div class="container">
     <div class="columns">
-      <div class="column is-6"><img :src="pinItem.large_image_url" alt="">
+      <div class="column is-6"><img :src="pinItem.large_image_url" alt="" @click="showImg">
       <div class="card-content">
             <div class="content">
                 <p class="description title">{{ pinItem.description }}</p>
@@ -58,6 +58,15 @@
               </div>
           </div>
       </div>
+      <div class="modal" :class="{ 'is-active': isActive }" @click="close">
+            <div class="modal-background"></div>
+            <div class="modal-content">
+              <p class="image">
+                <img :src="pinItem.large_image_url" alt="">
+              </p>
+            </div>
+            <button class="modal-close is-large" aria-label="close" @click="close"></button>
+        </div>
       <div class="column is-6">
           <comment-list :pin="pinItem" :user="user"></comment-list>
       </div>
@@ -75,6 +84,7 @@ function initialData() {
   return {
     hasLiked: false,
     userLoggedIn: false,
+    isActive: false,
   };
 }
 
@@ -127,6 +137,13 @@ export default {
     onLoginSucceed() {
       this.initializeUser(true);
     },
+    showImg() {
+      console.log(this.pinItem.large_image_url);
+      this.isActive = true;
+    },
+    close() {
+      this.isActive = false;
+    },
   },
   created() {
     if (this.user.loggedIn) {
@@ -178,8 +195,9 @@ export default {
   margin-bottom: 2px;
 }
 /* preview size should always less then screen */
-.card-image img {
-  width: 100%;
+.image {
+  margin: auto;
+  max-width: 1000px;
 }
 
 .heart{
