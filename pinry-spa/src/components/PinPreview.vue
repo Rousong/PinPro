@@ -23,9 +23,12 @@
                   <p class="subtitle is-10" v-show="pinItem.tags.length > 0">
                     <span class="subtitle dim">in&nbsp;</span>
                     <template v-for="tag in pinItem.tags">
-                      <b-tag v-bind:key="tag" type="is-info" class="pin-preview-tag">{{ tag }}</b-tag>
+                      <button v-bind:key="tag" class="button is-small is-link pin-preview-tag" @click="closeAndGoToFilter(tag)">{{ tag }}</button>
                     </template>
                   </p>
+                  <div class="time">
+                    {{ pinItem.published| formatDate('yyyy-MM-dd hh:mm:ss') }}
+                  </div>
                 </div>
               </div>
             </div>
@@ -97,7 +100,6 @@ export default {
   props: ['pinItem', 'user'],
   methods: {
     closeAndGoTo() {
-      alert(this.$parent);
       this.$parent.close();
       this.$router.push(
         { name: 'pin', params: { pinId: this.pinItem.id } },
@@ -136,6 +138,12 @@ export default {
     },
     onLoginSucceed() {
       this.initializeUser(true);
+    },
+    closeAndGoToFilter(tag) {
+      this.$parent.close();
+      this.$router.push(
+        { name: 'tag', params: { tag } },
+      );
     },
     showImg() {
       console.log(this.pinItem.large_image_url);
