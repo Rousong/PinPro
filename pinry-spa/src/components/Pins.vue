@@ -105,6 +105,7 @@ function createImageItem(pin) {
     width: `${pin.image.thumbnail.width}px`,
     height: `${pin.image.thumbnail.height}px`,
   };
+  image.published = pin.published;
   image.class = {};
   return image;
 }
