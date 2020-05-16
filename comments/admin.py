@@ -10,6 +10,6 @@ class CommentInline(admin.TabularInline):
 
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ['pin', 'author', 'published']
-
+    list_display = ['pin', 'author', 'content', 'parent_comment',  'published', ]
+    list_filter = ['pin', 'author', 'parent_comment',]
 
