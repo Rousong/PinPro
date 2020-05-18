@@ -11,7 +11,7 @@ class UserLikesDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = UserLikes
-        fields = ("pin", "id")
+        fields = ("pin", "id", )
 
 
 class UserLikeSerializer(serializers.ModelSerializer):

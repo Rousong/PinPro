@@ -248,7 +248,7 @@ export default {
     padding: 10px 0 15px;
     border-bottom: 1px solid #f0f0f0;
     .time {
-      font-size: 5px;
+      font-size: 12px;
       color: #969696;
     }
     .comment-detail {
