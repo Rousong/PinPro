@@ -1,11 +1,11 @@
 from rest_framework import viewsets, mixins
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import SessionAuthentication
-from .models import UserLikes
+from .models import UserLikes, UserOperation
 
 from core.serializers import PinSerializer
 from core.permissions import IsOwnerOrReadOnly, OwnerOnlyIfPrivate
-from .serializers import UserLikesDetailSerializer, UserLikeSerializer
+from .serializers import UserLikesDetailSerializer, UserLikeSerializer, UserOperationSerializer
 
 from utils.pagination import Pagination
 
@@ -37,3 +37,10 @@ class UserLikesViewset(viewsets.GenericViewSet, mixins.CreateModelMixin,
         elif self.action == "create":
             return UserLikeSerializer
         return UserLikeSerializer
+
+
+class UserOperationViewSet(viewsets.GenericViewSet, mixins.RetrieveModelMixin):
+
+    queryset = UserOperation.objects.all()
+    serializer_class = UserOperationSerializer
+    lookup_field = "user"

@@ -23,15 +23,15 @@
           </p>
         </div>
         <div class='column is-2-tablet is-4-mobile has-text-centered'>
-          <p class='stat-val'>3000</p>
+          <p class='stat-val'>{{userCnt.userLikes}}</p>
           <p class='stat-key'>Likes</p>
         </div>
         <div class='column is-2-tablet is-4-mobile has-text-centered'>
-          <p class='stat-val'>10</p>
+          <p class='stat-val'>{{userCnt.userPins}}</p>
           <p class='stat-key'>Pins</p>
         </div>
         <div class='column is-2-tablet is-4-mobile has-text-centered'>
-          <p class='stat-val'>3</p>
+          <p class='stat-val'>{{userCnt.userBoards}}</p>
           <p class='stat-key'>Boards</p>
         </div>
       </div>
@@ -90,6 +90,11 @@ function initialData() {
     editorMeta: {
       user: { loggedIn: false, meta: { username: null } },
     },
+    userCnt: {
+      userLikes: 0,
+      userPins: 0,
+      userBoards: 0,
+    },
   };
 }
 export default {
@@ -132,6 +137,17 @@ export default {
       );
       console.log(this.editorMeta);
     },
+    getUserCnt(user) {
+      console.log(user);
+      API.getCnt(user).then((resp) => {
+        this.userCnt.userLikes = resp.like_num;
+        this.userCnt.userPins = resp.pin_num;
+        this.userCnt.userBoards = resp.board_num;
+        setTimeout(() => {
+          this.loading = false;
+        }, 200);
+      });
+    },
     reset() {
       const data = initialData();
       Object.entries(data).forEach(
@@ -151,6 +167,7 @@ export default {
   },
   created() {
     this.initialize();
+    this.getUserCnt(this.$route.params.username);
   },
 };
 </script>

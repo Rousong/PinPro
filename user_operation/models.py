@@ -7,7 +7,7 @@ class UserOperation(BaseModel):
     """
     UserOperation
     """
-    user = models.ForeignKey(UserInfo, verbose_name="用户")
+    user = models.ForeignKey(UserInfo, to_field="username", verbose_name="用户")
     pin_num = models.IntegerField(verbose_name="Pin计数", default=0, help_text="pin数量")
     board_num = models.IntegerField(verbose_name="收藏夹计数", default=0, help_text="收藏夹计数")
     like_num = models.IntegerField(verbose_name="点赞计数", default=0, help_text="点赞计数")

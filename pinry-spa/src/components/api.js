@@ -285,11 +285,6 @@ function delLike(pinId) {
   return axios.delete(url);
 }
 // 获取所有点赞列表
-// function getAllLikes() {
-//   const url = `${API_PREFIX}like/`;
-//   return axios.get(url);
-// }
-
 function getAllLikes(page = 0, limit = 0) {
   const url = `${API_PREFIX}like/?page=${page}&limit=${limit}`;
   console.log(url);
@@ -347,6 +342,20 @@ function createComment(data) {
   );
 }
 
+function getCnt(user) {
+  const url = `${API_PREFIX}user_operation/${user}/`;
+  return new Promise(
+    (resolve, reject) => {
+      axios.get(url).then(
+        (resp) => {
+          resolve(resp.data);
+        },
+        error => reject(error),
+      );
+    },
+  );
+}
+
 export default {
   Tag,
   Pin,
@@ -362,4 +371,5 @@ export default {
   User,
   getComments,
   createComment,
+  getCnt,
 };

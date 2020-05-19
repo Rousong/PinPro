@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from rest_framework.validators import UniqueTogetherValidator
 
-from .models import UserLikes
+from .models import UserLikes, UserOperation
 from core.serializers import PinSerializer
 
 
@@ -27,3 +27,10 @@ class UserLikeSerializer(serializers.ModelSerializer):
             )
         ]
         fields = ("user", "pin", "id")
+
+
+class UserOperationSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = UserOperation
+        fields = ("user", "pin_num", "board_num", "like_num", )
