@@ -19,7 +19,7 @@ INSTALLED_APPS = [
     'taggit',
     'compressor',
     'django_images',
-    'core',
+    'core.apps.CoreConfig',
     'users',
     'user_operation.apps.UserOperationConfig',  # 如果要使用app下面的app.py里面的配置，就要添加Config类
     'comments',

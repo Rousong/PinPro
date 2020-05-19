@@ -131,10 +131,3 @@ class Pin(BaseModel):
         ordering = ('-published',)
         verbose_name_plural = 'PIN'
 
-
-@receiver(models.signals.post_delete, sender=Pin)
-def delete_pin_images(sender, instance, **kwargs):
-    try:
-        instance.image.delete()
-    except Image.DoesNotExist:
-        pass
