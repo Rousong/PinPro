@@ -51,13 +51,13 @@ else:
         upload_to = getattr(module, parts[-1])
 
 
-
 class Image(models.Model):
     image = models.ImageField(upload_to=upload_to,
                               height_field='height', width_field='width',
                               max_length=255)
     height = models.PositiveIntegerField(default=0, editable=False)
     width = models.PositiveIntegerField(default=0, editable=False)
+    is_published = models.BooleanField(default=True)
 
     def __str__(self):
         # 这里的目的是为了在admin的多对多字段返回图片ID

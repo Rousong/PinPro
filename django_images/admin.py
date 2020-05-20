@@ -6,8 +6,8 @@ from .models import Thumbnail
 
 class ImageAdmin(admin.ModelAdmin):
 
-    list_display = ('id', 'image_data', 'image', 'height', 'width', )
-
+    list_display = ('id', 'image_data', 'is_published', 'image', 'height', 'width', )
+    list_filter = ["is_published", ]
 
 class ThumbnailAdmin(admin.ModelAdmin):
 
