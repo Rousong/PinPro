@@ -21,8 +21,12 @@ del_items = set_a & set_b
 # 筛选出图片TBL的并集以外的item，也就是没有用到的图片
 pics = Image.objects.filter(~Q(id__in=del_items))
 
+print("未发布的图片有:{}张".format(pics.count()))
 # 打印id和地址，并且修改is_published字段，更新表
 for pic in pics:
-    print("ID:{}  URL:{}".format(pic.id,pic.image))
-    pic.is_published = False
-    pic.save()
+    if pic.is_published is True:
+        print("ID:{}  URL:{}".format(pic.id, pic.image))
+        pic.is_published = False
+        pic.save()
+    else:
+        print("ID:{}  URL:{} 已在未发布标签".format(pic.id, pic.image))
