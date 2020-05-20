@@ -16,8 +16,10 @@
               <div class="is-pulled-left">
                   <p class="title is-6 pin-meta-info"><span class="dim">{{$t("pins.PinnedBy")}}&nbsp;&nbsp;</span>
                     <span class="author">{{ pinItem.author }}</span>
-                    <span v-if="hasLiked" class="icon heart" @click="deleteCollect()" style="color:Tomato"><i class="fas fa-heart fa-3x "></i></span>
-                    <span v-else class="icon heart" @click="addCollect()"><i class="far fa-heart fa-3x "></i></span>
+                    <span v-if="hasLiked" class="icon heart" @click="deleteCollect()" style="color:Tomato">
+                      <i v-show= "!loading" class="fas fa-heart fa-3x "></i><img src='../assets/loader.gif' v-show="loading"></span>
+                    <span v-else class="icon heart" @click="addCollect()">
+                      <i v-show= "!loading" class="far fa-heart fa-3x "></i><img src='../assets/loader.gif' v-show="loading"></span>
                   </p>
                 <div class="is-pulled-left">
                   <p class="subtitle is-10" v-show="pinItem.tags.length > 0">
@@ -88,6 +90,7 @@ function initialData() {
     hasLiked: false,
     userLoggedIn: false,
     isActive: false,
+    loading: false,
   };
 }
 
@@ -109,21 +112,25 @@ export default {
       if (!this.user.loggedIn) {
         modals.openLogin(this, this.onLoginSucceed);
       }
+      this.loading = true;
       API.addLike({
         pin: this.pinItem.id,
       }).then((response) => {
         console.log(response.data);
         this.hasLiked = true;
+        this.loading = false;
       }).catch((error) => {
         console.log(error);
       });
     },
     deleteCollect() {
     // 取消点赞
+      this.loading = true;
       API.delLike(this.pinItem.id).then((response) => {
         console.log(response.data);
         console.log(this.pinItem.id);
         this.hasLiked = false;
+        this.loading = false;
       }).catch((error) => {
         console.log(error);
       });
