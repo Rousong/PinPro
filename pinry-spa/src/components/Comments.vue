@@ -9,7 +9,7 @@
             <div class="control">
               <strong>{{form.author}}</strong>
               <textarea v-model="form.content" :options="{hideModeSwitch:true,previewStyle:'tab'}"  class="textarea" rows="2" placeholder="Write something..."></textarea>
-              <p>{{message}}</p>
+              <strong style="color: #fc2e5a">{{message}}</strong>
             </div>
           </div>
           <div class="field">
@@ -151,7 +151,7 @@ export default {
     },
     onSubmit(comment) {
       if (comment.content === '') {
-        this.message = 'wocaomeitian';
+        this.message = '内容不能为空白';
         return;
       }
       API.createComment(comment).then((resp) => {
