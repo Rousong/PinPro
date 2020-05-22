@@ -52,6 +52,11 @@
                   {{$t("pHeader.Userinfo")}}
                 </router-link>
                 <router-link
+                  :to="{ name: 'likes', params: {user: user.meta.username} }"
+                  class="navbar-item">
+                  Mylikes
+                </router-link>
+                <router-link
                   :to="{ name: 'boards4user', params: {username: user.meta.username} }"
                   class="navbar-item">
                   {{$t("pHeader.Boards")}}
@@ -63,6 +68,9 @@
                 </router-link>
               </div>
             </div>
+            <a class="navbar-item" :href="bookmarklet" :title="explanation">
+              About
+            </a>
           </div>
           <div class="navbar-end">
             <router-link

@@ -10,6 +10,9 @@ import PinCreate from '../views/PinCreate.vue';
 import Search from '../views/Search.vue';
 import UserInfo from '../views/UserInfo.vue';
 import PageNotFound from '../views/PageNotFound.vue';
+// import LikePins from '../components/LikePins.vue';
+import Pins4Likes from '../views/Pins4Likes.vue';
+
 
 Vue.use(VueRouter);
 
@@ -23,6 +26,11 @@ const routes = [
     path: '/pins/tags/:tag',
     name: 'tag',
     component: Pins4Tag,
+  },
+  {
+    path: '/pins/likes/:user',
+    name: 'likes',
+    component: Pins4Likes,
   },
   {
     path: '/pins/users/:user',

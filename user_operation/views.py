@@ -25,7 +25,7 @@ class UserLikesViewset(viewsets.GenericViewSet, mixins.CreateModelMixin,
     """
     permission_classes = [IsOwnerOrReadOnly("user"), ]
     lookup_field = "pin_id"
-    pagination_class = Pagination
+    # pagination_class = Pagination
 
     def get_queryset(self):
         return UserLikes.objects.filter(user=self.request.user)

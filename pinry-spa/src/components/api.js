@@ -293,7 +293,7 @@ function getAllLikes(page = 0, limit = 0) {
       axios.get(url).then(
         (resp) => {
           console.log('resp.data', resp.data);
-          resolve(resp.data);
+          resolve(resp);
           // console.log(data);
         },
         error => reject(error),

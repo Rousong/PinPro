@@ -36,45 +36,45 @@
         </div>
       </div>
     </div>
-    <div class='profile-options is-fullwidth'>
-      <div class='tabs is-fullwidth is-medium'>
-        <ul>
-          <li class='link is-active'>
-            <a>
-              <span class='icon'>
-                <i class='fa fa-list'></i>
-              </span>
-              <span>My Pins</span>
-            </a>
-          </li>
-          <li class='link is-active'>
-            <a>
-              <span class='icon'>
-                <i class='fa fa-thumbs-up'></i>
-              </span>
-              <span>My Likes</span>
-            </a>
-          </li>
-          <li class='link'>
-            <a>
-              <span class='icon'>
-                <i class='fa fa-search'></i>
-              </span>
-              <span>My Boards</span>
-            </a>
-          </li>
-          <li class='link'>
-            <a>
-              <span class='icon'>
-                <i class='fa fa-balance-scale'></i>
-              </span>
-              <span>Compare</span>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <UserPins></UserPins>
+<!--    <div class='profile-options is-fullwidth'>-->
+<!--      <div class='tabs is-fullwidth is-medium'>-->
+<!--        <ul>-->
+<!--          <li class='link is-active'>-->
+<!--            <a>-->
+<!--              <span class='icon'>-->
+<!--                <i class='fa fa-list'></i>-->
+<!--              </span>-->
+<!--              <span>My Pins</span>-->
+<!--            </a>-->
+<!--          </li>-->
+<!--          <li class='link is-active'>-->
+<!--            <a>-->
+<!--              <span class='icon'>-->
+<!--                <i class='fa fa-thumbs-up'></i>-->
+<!--              </span>-->
+<!--              <span>My Likes</span>-->
+<!--            </a>-->
+<!--          </li>-->
+<!--          <li class='link'>-->
+<!--            <a>-->
+<!--              <span class='icon'>-->
+<!--                <i class='fa fa-search'></i>-->
+<!--              </span>-->
+<!--              <span>My Boards</span>-->
+<!--            </a>-->
+<!--          </li>-->
+<!--          <li class='link'>-->
+<!--            <a>-->
+<!--              <span class='icon'>-->
+<!--                <i class='fa fa-balance-scale'></i>-->
+<!--              </span>-->
+<!--              <span>Help</span>-->
+<!--            </a>-->
+<!--          </li>-->
+<!--        </ul>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <UserPins></UserPins>-->
   </div>
 </div>
     <footer class="footer">
@@ -91,7 +91,6 @@
 <script>
 import API from './api';
 import modals from './modals';
-import UserPins from './UserPins.vue';
 
 function initialData() {
   return {
@@ -111,7 +110,6 @@ export default {
     return initialData();
   },
   components: {
-    UserPins,
   },
   props: {
     filters: {
