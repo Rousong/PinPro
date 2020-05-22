@@ -1,82 +1,22 @@
 <template>
   <div>
   <div class='columns is-mobile is-multiline is-centered'>
-<!--      <div id="pins-container" class="container" v-if="blocks">-->
-<!--        <div-->
-<!--          v-masonry=""-->
-<!--          transition-duration="0.3s"-->
-<!--          item-selector=".grid-item"-->
-<!--          column-width=".grid-sizer"-->
-<!--          gutter=".gutter-sizer"-->
-<!--        >-->
-<!--          <template v-for="item in blocks">-->
-<!--            <div v-bind:key="item.id"-->
-<!--                 v-masonry-tile-->
-<!--                 :class="item.class"-->
-<!--                 class="grid pin-masonry">-->
-<!--              <div class="grid-sizer"></div>-->
-<!--              <div class="gutter-sizer"></div>-->
-<!--              <div class="pin-card grid-item">-->
-<!--                <div @mouseenter="showEditButtons(item.id)"-->
-<!--                     @mouseleave="hideEditButtons(item.id)"-->
-<!--                >-->
-<!--                  <EditorUI-->
-<!--                    v-show="shouldShowEdit(item.id)"-->
-<!--                    :pin="item"-->
-<!--                    :currentUsername="editorMeta.user.meta.username"-->
-<!--                    :currentBoard="editorMeta.currentBoard"-->
-<!--                    v-on:pin-delete-succeed="reset"-->
-<!--                    v-on:pin-remove-from-board-succeed="reset"-->
-<!--                  ></EditorUI>-->
-<!--                  <img :src="item.url"-->
-<!--                     @load="onPinImageLoaded(item.id)"-->
-<!--                     @click="openPreview(item, editorMeta.user)"-->
-<!--                     alt="item.description"-->
-<!--                     :style="item.style"-->
-<!--                     class="pin-preview-image">-->
-<!--                </div>-->
-<!--                <div class="pin-footer">-->
-<!--                  <div class="description" v-show="item.description"><p>{{ item.description }}</p>-->
-<!--                  </div>-->
-<!--                  <div class="details">-->
-<!--                    <div class="is-pulled-left">-->
-<!--                      <img class="avatar" :src="item.avatar" alt="">-->
-<!--                    </div>-->
-<!--                    <div class="pin-info">-->
-<!--                      <span class="dim">{{$t("pins.PinnedBy")}}&nbsp;-->
-<!--                        <span>-->
-<!--                          <router-link-->
-<!--                            :to="{ name: 'user', params: {user: item.author} }">-->
-<!--                            {{ item.author }}-->
-<!--                          </router-link>-->
-<!--                        </span>-->
-<!--                        <span class="tag is-danger is-normal" v-show="shouldShowIsChecking(item.checking)">审核中</span>-->
-<!--                        <template v-if="item.tags.length > 0">-->
-<!--                          &nbsp;in&nbsp;-->
-<!--                          <template v-for="tag in item.tags">-->
-<!--                            <span v-bind:key="tag" class="pin-tag">-->
-<!--                              <router-link :to="{ name: 'tag', params: {tag: tag} }"-->
-<!--                                           params="{tag: tag}">{{ tag }}</router-link>-->
-<!--                            </span>-->
-<!--                          </template>-->
-<!--                        </template>-->
-<!--                      </span>-->
-<!--                    </div>-->
-<!--                    <div class="is-clearfix"></div>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </template>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      ————————————————————————————————————————————-->
     <template  v-for="item in blocks">
       <div v-bind:key="item.id"  class='column is-3-tablet is-6-mobile is-one-fifth-desktop'>
         <div class='card'>
           <div class='card-image'>
             <figure class='image is-4by3'>
-              <img alt='' :src="item.url">
+                  <EditorUI
+                    :pin="item"
+                    :currentUsername="editorMeta.user.meta.username"
+                    :currentBoard="editorMeta.currentBoard"
+                    v-on:pin-delete-succeed="reset"
+                    v-on:pin-remove-from-board-succeed="reset"
+                  ></EditorUI>
+                  <img :src="item.url"
+                     @load="onPinImageLoaded(item.id)"
+                     @click="openPreview(item, editorMeta.user)"
+                     alt="item.description">
             </figure>
           </div>
           <div class='card-content'>
@@ -91,7 +31,7 @@
             </div>
           </div>
           <footer class='card-footer'>
-            <a class='card-footer-item'>添加</a>
+            <a class='card-footer-item' @click="addToBoard">添加</a>
             <a class='card-footer-item'>删除</a>
             <a class='card-footer-item'>编辑</a>
           </footer>
@@ -108,8 +48,8 @@ import API from './api';
 import pinHandler from './utils/PinHandler';
 import PinPreview from './PinPreview.vue';
 import Pagination from './Pagination.vue';
-// import scroll from './utils/scroll';
-// import bus from './utils/bus';
+import modals from './modals';
+import EditorUI from './editors/PinEditorUI.vue';
 
 function createImageItem(like) {
   const image = {};
@@ -168,6 +108,7 @@ export default {
   name: 'pins',
   components: {
     Pagination,
+    EditorUI,
   },
   data() {
     return initialData();
@@ -190,6 +131,38 @@ export default {
     },
   },
   methods: {
+    addToBoard() {
+      modals.openAdd2Board(this, this.item, this.currentUsername);
+    },
+    editPin() {
+      const props = {
+        username: this.currentUsername,
+        existedPin: this.pin,
+        isEdit: true,
+      };
+      modals.openPinEdit(
+        this,
+        props,
+      );
+    },
+    deletePin() {
+      this.$buefy.dialog.confirm({
+        message: 'Delete this Pin?',
+        onConfirm: () => {
+          API.Pin.deleteById(this.pin.id).then(
+            () => {
+              this.$buefy.toast.open('Pin deleted');
+              this.$emit('pin-delete-succeed', this.pin.id);
+            },
+            () => {
+              this.$buefy.toast.open(
+                { type: 'is-danger', message: 'Failed to delete Pin' },
+              );
+            },
+          );
+        },
+      });
+    },
     // 是否显示审核状态标签
     shouldShowIsChecking(checking) {
       if (!this.editorMeta.user.loggedIn) {
@@ -209,17 +182,6 @@ export default {
       };
       this.blocksMap[itemId].style.height = 'auto';
     },
-    // registerScrollEvent() {
-    //   const self = this;
-    //   scroll.bindScroll2Bottom(
-    //     () => {
-    //       if (self.status.loading || !self.status.hasNext) {
-    //         return;
-    //       }
-    //       self.fetchMore();
-    //     },
-    //   );
-    // },
     buildBlocks(results) {
       const blocks = [];
       results.forEach(
@@ -275,16 +237,6 @@ export default {
         },
       );
     },
-    // reset() {
-    //   const data = initialData();
-    //   Object.entries(data).forEach(
-    //     (kv) => {
-    //       const [key, value] = kv;
-    //       this[key] = value;
-    //     },
-    //   );
-    //   this.initialize();
-    // },
     changePage(page) {
       this.blocks = [];
       this.listQuery.page = page;
@@ -302,66 +254,17 @@ export default {
 
           newBlocks = this.blocks.concat(newBlocks);
           this.blocks = newBlocks;
-          // this.status.offset = newBlocks.length;
-          // this.status.hasNext = !(next === null);
-          // this.status.loading = false;
         },
-        // () => { this.status.loading = false; },
       );
     },
   },
   created() {
-    // bus.bus.$on(bus.events.refreshPin, this.reset);
-    // this.registerScrollEvent();
     this.initialize();
   },
 };
 </script>
 
 <style lang="scss" scoped>
-/* grid */
-@import 'utils/pin';
-@media screen and (min-width: 270px) {
-      .grid-sizer,
-      .grid-item { width: 48%;}
-  }
-// @media screen and (min-width: 400px) {
-//       .grid-sizer,
-//       .grid-item { width: 48%; }
-  // }
-// @media screen and (min-width: 543px) {
-//       .grid-sizer,
-//       .grid-item { width: 200px; }
-//   }
-// @media screen and (min-width: 700px) {
-//       .grid-sizer,
-//       .grid-item { width: 28%; }
-//   }
-@media screen and (min-width: 1053px) {
-      .grid-sizer,
-      .grid-item { width: 28%; }
-  }
-@media screen and (min-width: 1300px) {
-      .grid-sizer,
-      .grid-item { width: 15%; }
-  }
-
-
-.grid-item {
-  margin-bottom: 15px;
-}
-.gutter-sizer {
-  width: 10px;
-}
-
-/* pin-image transition */
-.pin-masonry.image-loaded{
-  opacity: 1;
-  transition: opacity .3s;
-}
-.pin-masonry {
-  opacity: 0;
-}
 
 /* card */
 $pin-footer-position-fix: -10px;
