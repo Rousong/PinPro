@@ -135,8 +135,8 @@ export default {
     checkLikeFlg() {
       API.checkIfLike(this.pinItem.id).then(() => {
         this.hasLiked = true;
-      }).catch((error) => {
-        console.log(error);
+      }).catch(() => {
+        console.log('Not liked');
       });
     },
     onLoginSucceed() {

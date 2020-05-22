@@ -118,8 +118,6 @@ export default {
   props: ['pin', 'user'],
   created() {
     this.getList(this.listQuery);
-    console.log('user', this.user.loggedIn);
-    console.log(this.pin);
   },
   methods: {
     getList() {
