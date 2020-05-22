@@ -122,16 +122,13 @@ export default {
     console.log(this.pin);
   },
   methods: {
-    getList(listQuery) {
+    getList() {
       this.listQuery.pin = this.pin.id;
-      console.log(listQuery);
       this.loading = true;
       API.getComments(this.listQuery.pin, this.listQuery.page, this.listQuery.limit).then((resp) => {
         this.comments = resp.data.items;
-        console.log('comments', resp.data.items);
         this.total = resp.data.total;
         this.pageConfigTotal.total = resp.data.total;
-        console.log('total', resp.data.total);
         setTimeout(() => {
           this.loading = false;
         }, 200);
@@ -146,7 +143,6 @@ export default {
         this.sub_content = subContent;
         this.level = level;
         this.sub_form.content = '';
-        console.log('this.sub_contentt', this.sub_content);
       }
     },
     onSubmit(comment) {
@@ -155,38 +151,24 @@ export default {
         return;
       }
       API.createComment(comment).then((resp) => {
-        // this.$message({
-        //   message: '保存成功',
-        //   type: 'success',
-        //   showClose: true,
-        //   duration: 1000,
-        // });
         const data = resp.items;
-        console.log('data ', data);
         if (comment.pin) {
           // 一级评论
           this.comments.unshift(data);
-          console.log('add 1 level');
         } else if (this.level === 3) {
           // 三级评论
-          this.comments.forEach((x, i, comments) => {
-            console.log(i, x, comments);
-            x.sub_comment.forEach((xs, j, c) => {
-              console.log(j, xs, c);
+          this.comments.forEach((x) => {
+            x.sub_comment.forEach((xs) => {
               if (xs.id === data.parent_comment) {
                 xs.sub_comment.unshift(data);
-                // console.log('add 3 level')
               }
             });
           });
-          console.log('level 3');
         } else if (this.level === 2) {
           // 二级评论
-          this.comments.forEach((x, i, comments) => {
-            console.log(i, comments);
+          this.comments.forEach((x) => {
             if (x.id === data.parent_comment) {
               x.sub_comment.unshift(data);
-              console.log('add 2 level');
             }
           });
         }

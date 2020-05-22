@@ -36,45 +36,6 @@
         </div>
       </div>
     </div>
-<!--    <div class='profile-options is-fullwidth'>-->
-<!--      <div class='tabs is-fullwidth is-medium'>-->
-<!--        <ul>-->
-<!--          <li class='link is-active'>-->
-<!--            <a>-->
-<!--              <span class='icon'>-->
-<!--                <i class='fa fa-list'></i>-->
-<!--              </span>-->
-<!--              <span>My Pins</span>-->
-<!--            </a>-->
-<!--          </li>-->
-<!--          <li class='link is-active'>-->
-<!--            <a>-->
-<!--              <span class='icon'>-->
-<!--                <i class='fa fa-thumbs-up'></i>-->
-<!--              </span>-->
-<!--              <span>My Likes</span>-->
-<!--            </a>-->
-<!--          </li>-->
-<!--          <li class='link'>-->
-<!--            <a>-->
-<!--              <span class='icon'>-->
-<!--                <i class='fa fa-search'></i>-->
-<!--              </span>-->
-<!--              <span>My Boards</span>-->
-<!--            </a>-->
-<!--          </li>-->
-<!--          <li class='link'>-->
-<!--            <a>-->
-<!--              <span class='icon'>-->
-<!--                <i class='fa fa-balance-scale'></i>-->
-<!--              </span>-->
-<!--              <span>Help</span>-->
-<!--            </a>-->
-<!--          </li>-->
-<!--        </ul>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--    <UserPins></UserPins>-->
   </div>
 </div>
     <footer class="footer">
@@ -141,10 +102,8 @@ export default {
           }
         },
       );
-      console.log(this.editorMeta);
     },
     getUserCnt(user) {
-      console.log(user);
       API.getCnt(user).then((resp) => {
         this.userCnt.userLikes = resp.like_num;
         this.userCnt.userPins = resp.pin_num;

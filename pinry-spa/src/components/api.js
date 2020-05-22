@@ -287,14 +287,11 @@ function delLike(pinId) {
 // 获取所有点赞列表
 function getAllLikes(page = 0, limit = 0) {
   const url = `${API_PREFIX}like/?page=${page}&limit=${limit}`;
-  console.log(url);
   return new Promise(
     (resolve, reject) => {
       axios.get(url).then(
         (resp) => {
-          console.log('resp.data', resp.data);
           resolve(resp);
-          // console.log(data);
         },
         error => reject(error),
       );
@@ -311,14 +308,11 @@ function checkIfLike(pinId) {
 
 function getComments(pin = 1, page = 0, limit = 0) {
   const url = `${API_PREFIX}comments/?pin=${pin}&page=${page}&limit=${limit}`;
-  console.log(url);
   return new Promise(
     (resolve, reject) => {
       axios.get(url).then(
         (resp) => {
-          console.log('resp.data', resp.data);
           resolve(resp.data);
-          // console.log(data);
         },
         error => reject(error),
       );
@@ -333,7 +327,6 @@ function createComment(data) {
     (resolve, reject) => {
       axios.post(url, data).then(
         (resp) => {
-          console.log('createComment', resp);
           resolve(resp.data);
         },
         error => reject(error),

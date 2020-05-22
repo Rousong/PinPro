@@ -115,8 +115,7 @@ export default {
       this.loading = true;
       API.addLike({
         pin: this.pinItem.id,
-      }).then((response) => {
-        console.log(response.data);
+      }).then(() => {
         this.hasLiked = true;
         this.loading = false;
       }).catch((error) => {
@@ -126,9 +125,7 @@ export default {
     deleteCollect() {
     // 取消点赞
       this.loading = true;
-      API.delLike(this.pinItem.id).then((response) => {
-        console.log(response.data);
-        console.log(this.pinItem.id);
+      API.delLike(this.pinItem.id).then(() => {
         this.hasLiked = false;
         this.loading = false;
       }).catch((error) => {
@@ -136,8 +133,7 @@ export default {
       });
     },
     checkLikeFlg() {
-      API.checkIfLike(this.pinItem.id).then((response) => {
-        console.log(response.data);
+      API.checkIfLike(this.pinItem.id).then(() => {
         this.hasLiked = true;
       }).catch((error) => {
         console.log(error);
@@ -153,7 +149,6 @@ export default {
       );
     },
     showImg() {
-      console.log(this.pinItem.large_image_url);
       this.isActive = true;
     },
     close() {

@@ -266,34 +266,13 @@ export default {
       }
       this.status.loading = true;
       let promise;
-      if (this.pinFilters.tagFilter) {
-        promise = API.fetchPins(this.status.offset, this.pinFilters.tagFilter);
-      } else if (this.pinFilters.userFilter) {
-        promise = API.fetchPins(this.status.offset, null, this.pinFilters.userFilter);
-      } else if (this.pinFilters.boardFilter) {
-        promise = new Promise(
-          (resolve, reject) => {
-            API.fetchPinsForBoard(this.pinFilters.boardFilter).then(
-              (resp) => {
-                this.editorMeta.currentBoard = resp.data.board;
-                resolve(resp);
-              },
-              (error) => {
-                reject(error);
-              },
-            );
-          },
-        );
-      } else if (this.pinFilters.idFilter) {
-        promise = API.fetchPin(this.pinFilters.idFilter);
-      } else if (this.pinFilters.likeFilter) {
+      if (this.pinFilters.likeFilter) {
         promise = API.getAllLikes(this.status.offset);
       } else {
         promise = API.fetchPins(this.status.offset);
       }
       promise.then(
         (resp) => {
-          console.log('ceshi..........', resp.data);
           const { results, next } = resp.data;
           let newBlocks = this.buildBlocks(results);
           newBlocks.forEach(
