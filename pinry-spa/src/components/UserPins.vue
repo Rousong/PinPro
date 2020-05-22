@@ -1,4 +1,5 @@
 <template>
+  <div>
   <div class='columns is-mobile is-multiline is-centered'>
 <!--      <div id="pins-container" class="container" v-if="blocks">-->
 <!--        <div-->
@@ -71,7 +72,7 @@
 <!--      </div>-->
 <!--      ————————————————————————————————————————————-->
     <template  v-for="item in blocks">
-    <div v-bind:key="item.id"  class='column is-3-tablet is-6-mobile is-one-fifth-desktop'>
+      <div v-bind:key="item.id"  class='column is-3-tablet is-6-mobile is-one-fifth-desktop'>
         <div class='card'>
           <div class='card-image'>
             <figure class='image is-4by3'>
@@ -97,16 +98,8 @@
         </div>
       </div>
       </template>
-    <footer class="footer">
-  <div class="content has-text-centered">
-    <p>
-      <Pagination :page-config="pageConfigTotal" @changeCurrentPage="changePage"></Pagination>
-      <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
-      <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
-      is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
-    </p>
-  </div>
-</footer>
+     </div>
+    <Pagination :page-config="pageConfigTotal" @changeCurrentPage="changePage"></Pagination>
   </div>
 </template>
 
