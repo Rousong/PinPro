@@ -117,6 +117,7 @@ class PinSerializer(serializers.HyperlinkedModelSerializer):
             "image",
             "image_by_id",
             "tags",
+            "likes_num",
             "published",
         )
 

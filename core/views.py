@@ -11,7 +11,7 @@ from core import serializers as api
 from core.models import Image, Pin, Board
 from core.permissions import IsOwnerOrReadOnly, OwnerOnlyIfPrivate
 from core.serializers import filter_unchecked_and_private_pin, filter_private_board
-
+from .filters import PinFilter
 
 class ImageViewSet(mixins.CreateModelMixin, GenericViewSet):
     queryset = Image.objects.all()
@@ -24,7 +24,8 @@ class ImageViewSet(mixins.CreateModelMixin, GenericViewSet):
 class PinViewSet(viewsets.ModelViewSet):
     serializer_class = api.PinSerializer
     filter_backends = (DjangoFilterBackend, SearchFilter, OrderingFilter)
-    filter_fields = ("submitter__username", 'tags__name', )
+    # filter_fields = ("submitter__username", 'tags__name', )
+    filter_class = PinFilter
     ordering_fields = ('-id', )
     ordering = ('-id', )
     permission_classes = [IsOwnerOrReadOnly("submitter"), OwnerOnlyIfPrivate("submitter"),]
