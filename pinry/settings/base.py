@@ -138,7 +138,7 @@ API_LIMIT_PER_PAGE = 50
 IMAGE_PATH = 'core.utils.upload_path'
 
 IMAGE_SIZES = {
-    'thumbnail': {'size': [400, 0]},
+    'thumbnail': {'size': [300, 0]},
     'standard': {'size': [600, 0]},
     'square': {'crop': True, 'size': [125, 125]},
 }
@@ -149,7 +149,7 @@ FONT_PATH = os.path.join(BASE_DIR, 'pinry/static/font/good times rg.ttf')
 DOMAIN = "www.2zzy.com"
 
 # Enable watermark or not. Default is False
-WATER_MARK = True
+WATER_MARK = False
 
 # IS_TEST is a variable to mark if the test is running
 IS_TEST = False
