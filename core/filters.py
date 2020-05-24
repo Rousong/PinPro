@@ -24,18 +24,21 @@ class PinFilter(django_filters.rest_framework.FilterSet):
 
     def top_liked_filter(self, queryset, name, value):
         if value == "week":
-            # 当前天 显示当前日期是本周第几天
-            day_num = now_time.isoweekday()
-            # 计算当前日期所在周一
-            monday = (now_time - datetime.timedelta(days=day_num))
+            # # 当前天 显示当前日期是本周第几天
+            # day_num = now_time.isoweekday()
+            # # 计算当前日期所在周一
+            # monday = (now_time - datetime.timedelta(days=day_num))
+            day7 = (now_time - datetime.timedelta(days=7))  # 过去7天内的统计
             # 查询一周内的数据
-            week_pins = queryset.filter(Q(published__range=(monday, now_time)) & ~Q(likes_num=0)).order_by("likes_num")
+            week_pins = queryset.filter(Q(published__range=(day7, now_time)) & ~Q(likes_num=0)).order_by("likes_num")
             return week_pins
         elif value == "month":
-            month_pins = queryset.filter(Q(published__month=now_time.month) & ~Q(likes_num=0)).order_by("likes_num")
+            day30 = (now_time - datetime.timedelta(days=30))  # 过去30天内的统计
+            month_pins = queryset.filter(Q(published__range=(day30, now_time)) & ~Q(likes_num=0)).order_by("likes_num")
             return month_pins
         elif value == "year":
-            year_pins = queryset.filter(Q(published__year=now_time.year) & ~Q(likes_num=0)).order_by("likes_num")
+            day365 = (now_time - datetime.timedelta(days=365))  # 过去365天内的统计
+            year_pins = queryset.filter(Q(published__range=(day365, now_time)) & ~Q(likes_num=0)).order_by("likes_num")
             return year_pins
 
     class Meta:
