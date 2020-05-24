@@ -307,26 +307,28 @@ export default {
 //       .grid-sizer,
 //       .grid-item { width: 48%; }
   // }
-// @media screen and (min-width: 543px) {
-//       .grid-sizer,
-//       .grid-item { width: 200px; }
-//   }
+@media screen and (min-width: 798px) {
+       .grid-sizer,
+       .grid-item { width: 32%; }
+   }
 // @media screen and (min-width: 700px) {
 //       .grid-sizer,
 //       .grid-item { width: 28%; }
 //   }
 @media screen and (min-width: 1053px) {
       .grid-sizer,
-      .grid-item { width: 28%; }
+      .grid-item { width: 24%; }
   }
 @media screen and (min-width: 1300px) {
       .grid-sizer,
-      .grid-item { width: 15%; }
+      .grid-item { width: 15.8%; }
   }
 
-
+.section {
+  padding: 1rem 0.5rem
+}
 .grid-item {
-  margin-bottom: 15px;
+  margin-bottom: 1px;
 }
 .gutter-sizer {
   width: 10px;
