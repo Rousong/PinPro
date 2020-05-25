@@ -14,10 +14,12 @@ class PinAdmin(admin.ModelAdmin):
     # 在amdin里面实现批量操作处理，第一个参数变为self
     def make_checked(self, request, queryset):
         queryset.update(check='1')
+
     make_checked.short_description = "通过审核"
 
     def not_passed(self, request, queryset):
         queryset.update(check='2')
+
     not_passed.short_description = "未通过审核"
 
     # 遍历tag的queryset 拿出每一个的name值来显示在admin里面
@@ -28,6 +30,7 @@ class PinAdmin(admin.ModelAdmin):
                     'likes_num', 'tag_name', 'published')
     # filter_horizontal = ['likes', ]
     # search_fields = ['check', 'submitter',]
+    readonly_fields = ['image', 'image_data', 'tag_name', 'tags']
     list_editable = ["check", ]
     list_filter = ["check", "submitter", ]
 
