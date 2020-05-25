@@ -68,6 +68,11 @@
                 </router-link>
               </div>
             </div>
+            <router-link
+                  :to="{ name: 'ranking'}"
+                  class="navbar-item">
+                  Rangking
+                </router-link>
             <a class="navbar-item" :href="bookmarklet" :title="explanation">
               About
             </a>

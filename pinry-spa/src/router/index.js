@@ -12,6 +12,7 @@ import UserInfo from '../views/UserInfo.vue';
 import PageNotFound from '../views/PageNotFound.vue';
 // import LikePins from '../components/LikePins.vue';
 import Pins4Likes from '../views/Pins4Likes.vue';
+import PinRanking from '../views/PinRanking.vue';
 
 
 Vue.use(VueRouter);
@@ -66,6 +67,11 @@ const routes = [
     path: '/profile/users/:username',
     name: 'profile',
     component: UserInfo,
+  },
+  {
+    path: '/ranking',
+    name: 'ranking',
+    component: PinRanking,
   },
   {
     path: '*',
