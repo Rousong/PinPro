@@ -2,7 +2,8 @@
   <div class="comment-list">
     <div class="top-title">
       <span>{{ total }} 条评论</span>&nbsp;&nbsp;
-      <button class="button is-primary is-small is-outlined" :loading="loading" @click="refreshComments">刷新评论</button>
+      <button class="button is-primary is-small is-outlined" v-show= "!loading" @click="refreshComments">刷新评论</button>
+      <img src='../assets/loading.gif' v-show="loading">
     </div>
     <div v-if="this.user.loggedIn">
     <div class="field">
