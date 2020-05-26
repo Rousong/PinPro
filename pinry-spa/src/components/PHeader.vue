@@ -54,7 +54,7 @@
                 <router-link
                   :to="{ name: 'likes', params: {user: user.meta.username} }"
                   class="navbar-item">
-                  Mylikes
+                  {{$t("pHeader.UserLikes")}}
                 </router-link>
                 <router-link
                   :to="{ name: 'boards4user', params: {username: user.meta.username} }"
@@ -71,11 +71,8 @@
             <router-link
                   :to="{ name: 'ranking'}"
                   class="navbar-item">
-                  Rangking
+                  {{$t("pHeader.Ranking")}}
                 </router-link>
-            <a class="navbar-item" :href="bookmarklet" :title="explanation">
-              About
-            </a>
           </div>
           <div class="navbar-end">
             <router-link

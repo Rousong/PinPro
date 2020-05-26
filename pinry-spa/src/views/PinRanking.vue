@@ -20,7 +20,10 @@ export default {
   data() {
     return {
       menuItems: {
-        week: '本周', month: '本月', year: '本年', all: '全部',
+        week: this.$i18n.t('rank.Week'),
+        month: this.$i18n.t('rank.Month'),
+        year: this.$i18n.t('rank.Year'),
+        all: this.$i18n.t('rank.All'),
       },
       position: '',
       filters: { rankFilter: null },
