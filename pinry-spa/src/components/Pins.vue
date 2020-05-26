@@ -50,7 +50,7 @@
                             {{ item.author }}
                           </router-link>
                         </span>
-                        <span class="tag is-danger is-normal" v-show="shouldShowIsChecking(item.checking)">审核中</span>
+                        <span class="tag is-danger is-normal" v-show="shouldShowIsChecking(item.checking)">{{$t("pins.Review")}}</span>
                         <template v-if="item.tags.length > 0">
                           &nbsp;in&nbsp;
                           <template v-for="tag in item.tags">
@@ -106,6 +106,7 @@ function createImageItem(pin) {
     height: `${pin.image.thumbnail.height}px`,
   };
   image.published = pin.published;
+  image.likes_num = pin.likes_num;
   image.class = {};
   return image;
 }

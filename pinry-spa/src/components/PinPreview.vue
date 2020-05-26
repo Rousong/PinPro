@@ -20,10 +20,11 @@
                       <i v-show= "!loading" class="fas fa-heart fa-3x "></i><img src='../assets/loader.gif' v-show="loading"></span>
                     <span v-else class="icon heart" @click="addCollect()">
                       <i v-show= "!loading" class="far fa-heart fa-3x "></i><img src='../assets/loader.gif' v-show="loading"></span>
+                      <span class="dim" v-show="pinItem.likes_num>0">&nbsp;&nbsp;{{ pinItem.likes_num }}</span>
                   </p>
                 <div class="is-pulled-left">
                   <p class="subtitle is-10" v-show="pinItem.tags.length > 0">
-                    <span class="subtitle dim">in&nbsp;</span>
+                    <span class="subtitle dim">{{$t("pins.Tags")}}&nbsp;</span>
                     <template v-for="tag in pinItem.tags">
                       <button v-bind:key="tag" class="button is-small is-link pin-preview-tag" @click="closeAndGoToFilter(tag)">{{ tag }}</button>
                     </template>
@@ -118,6 +119,7 @@ export default {
       }).then(() => {
         this.hasLiked = true;
         this.loading = false;
+        this.pinItem.likes_num += 1;
       }).catch((error) => {
         console.log(error);
       });
@@ -128,6 +130,7 @@ export default {
       API.delLike(this.pinItem.id).then(() => {
         this.hasLiked = false;
         this.loading = false;
+        this.pinItem.likes_num -= 1;
       }).catch((error) => {
         console.log(error);
       });
