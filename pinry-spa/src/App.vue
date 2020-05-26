@@ -1,12 +1,16 @@
 <template>
   <div id="app">
     <router-view/>
+    <GoTop></GoTop>
   </div>
 </template>
 
 <script>
+import GoTop from './components/GoTop.vue';
+
 export default {
   name: 'app',
+  components: { GoTop },
 };
 </script>
 
