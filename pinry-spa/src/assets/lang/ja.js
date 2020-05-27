@@ -98,4 +98,15 @@ module.exports = {
     GotoPinLink: 'ピンリンク',
     Referer: 'リファラー',
   },
+  comment: {
+    reflash: 'リフレッシュ',
+    total: 'コメント',
+    saySth: '何かを書く ...',
+    submit: '提出',
+    reply: '返信',
+    blankWarn: 'コンテンツを空白にすることは禁止',
+    cancle: '取り消し',
+    login: 'コメントを書く',
+    toUser: '該当ユーザーのピンを表示しますか？',
+  },
 };

@@ -34,7 +34,7 @@ export default {
     },
     closeAndGoTo() {
       this.$buefy.dialog.confirm({
-        message: '查看该用户的作品?',
+        message: this.$i18n.t('comment.toUser'),
         onConfirm: () => {
           this.$parent.$parent.$parent.close();
           this.$router.push({ name: 'user', params: { user: this.comment.author } });

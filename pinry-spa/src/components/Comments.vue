@@ -1,26 +1,26 @@
 <template>
   <div class="comment-list">
     <div class="top-title">
-      <span>{{ total }} 条评论</span>&nbsp;&nbsp;
-      <button class="button is-primary is-small is-outlined" v-show= "!loading" @click="refreshComments">刷新评论</button>
+      <span>{{ total }} {{$t("comment.total")}}</span>&nbsp;&nbsp;
+      <button class="button is-primary is-small is-outlined" v-show= "!loading" @click="refreshComments">{{$t("comment.reflash")}}</button>
       <img src='../assets/loading.gif' v-show="loading">
     </div>
     <div v-if="this.user.loggedIn">
     <div class="field">
             <div class="control">
               <strong>{{form.author}}</strong>
-              <textarea v-model="form.content" :options="{hideModeSwitch:true,previewStyle:'tab'}"  class="textarea" rows="2" placeholder="Write something..."></textarea>
+              <textarea v-model="form.content" :options="{hideModeSwitch:true,previewStyle:'tab'}"  class="textarea" rows="2" :placeholder="$t('comment.saySth')"></textarea>
               <strong style="color: #fc2e5a">{{message}}</strong>
             </div>
           </div>
           <div class="field">
             <div class="control">
-              <button class="button is-primary is-fullwidth" @click="onSubmit(form)">Submit</button>
+              <button class="button is-primary is-fullwidth" @click="onSubmit(form)">{{$t("comment.submit")}}</button>
             </div>
           </div>
     </div>
     <div v-else>
-      <button class="button is-danger is-fullwidth"  @click="logIn">登陆后评论</button>
+      <button class="button is-danger is-fullwidth"  @click="logIn">{{$t("comment.login")}}</button>
     </div>
     <div v-for="(item, i) in comments" :key="i" class="item">
       <comment-detail :comment="item"/>
@@ -28,7 +28,7 @@
           <!-- 第二层回复 -->
          <div class="time">
           {{ item.published| formatDate('yyyy-MM-dd hh:mm:ss') }}
-           <button class="button is-primary is-small is-outlined"  @click="showCommentModal(item.id, item.content, 2)">回复</button>
+           <button class="button is-primary is-small is-outlined"  @click="showCommentModal(item.id, item.content, 2)">{{$t("comment.reply")}}</button>
         </div>
       </div>
       <div v-for="(e, i2) in item.sub_comment" :key="i2" class="item-other">
@@ -36,7 +36,7 @@
         <!-- 第三层回复 -->
         <div class="time">
           {{ e.published| formatDate('yyyy-MM-dd hh:mm:ss') }}
-           <button class="button is-primary is-small is-outlined"  @click="showCommentModal(e.id, e.content, 3)">回复</button>
+           <button class="button is-primary is-small is-outlined"  @click="showCommentModal(e.id, e.content, 3)">{{$t("comment.reply")}}</button>
         </div>
         <div v-for="(j, i3) in e.sub_comment" :key="i3" class="item-other">
           <comment-detail :comment="j"/>
@@ -53,7 +53,7 @@
   <div class="modal-background"></div>
   <div class="modal-card">
     <header class="modal-card-head">
-      <p class="modal-card-title"><span>回复给：{{ sub_content }}</span></p>
+      <p class="modal-card-title"><span>{{$t("comment.reply")}}：{{ sub_content }}</span></p>
       <button class="delete" aria-label="close" @click="close"></button>
     </header>
     <section class="modal-card-body">
@@ -61,14 +61,14 @@
       <div class="field">
             <div class="control">
               <strong>{{sub_form.author}}</strong>
-              <textarea v-model="sub_form.content"  class="textarea" rows="2" placeholder="Write something..."></textarea>
+              <textarea v-model="sub_form.content"  class="textarea" rows="2" :placeholder="$t('comment.saySth')"></textarea>
               <p>{{message}}</p>
             </div>
           </div>
     </section>
     <footer class="modal-card-foot">
-      <button class="button is-primary" @click="onSubmit(sub_form)">Submit</button>
-      <button class="button" @click="close()">Cancel</button>
+      <button class="button is-primary" @click="onSubmit(sub_form)">{{$t("comment.submit")}}</button>
+      <button class="button" @click="close()">{{$t("comment.cancle")}}</button>
     </footer>
   </div>
 </div>
@@ -146,7 +146,7 @@ export default {
     },
     onSubmit(comment) {
       if (comment.content === '') {
-        this.message = '内容不能为空白';
+        this.message = this.$i18n.t('comment.blankWarn');
         return;
       }
       API.createComment(comment).then((resp) => {

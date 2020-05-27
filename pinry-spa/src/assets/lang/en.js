@@ -97,4 +97,15 @@ module.exports = {
     GotoPinLink: 'Goto Pin Link',
     Referer: 'Referer',
   },
+  comment: {
+    reflash: 'Reflash',
+    total: 'Comment',
+    saySth: 'Write something...',
+    submit: 'Submit',
+    reply: 'Reply',
+    blankWarn: 'Content cannot be blank',
+    cancle: 'Cancle',
+    login: 'Comment after login',
+    toUser: 'View this user\'s pins?',
+  },
 };

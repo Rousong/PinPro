@@ -98,4 +98,15 @@ module.exports = {
     GotoPinLink: '贴图地址',
     Referer: '来源网站',
   },
+  comment: {
+    reflash: '刷新评论',
+    total: '条评论',
+    saySth: '说点什么吧...',
+    submit: '提交',
+    reply: '回复',
+    blankWarn: '内容不能为空白',
+    cancle: '取消',
+    login: '登陆后评论',
+    toUser: '查看该用户的作品?',
+  },
 };
