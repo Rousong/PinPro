@@ -23,6 +23,7 @@ PinPro使用Pinry的开源内核，提供一个为人们分享和上传贴图的
 - 收藏/点赞功能(add @2020.05.01)
 - 多语言对应(add @2020.05.02)
 - 评论功能(add @2020.05.15)
+- 热度排行(add @2020.05.25)
 
 ## 使用docker安装部署
 参考这里的完整文档 [https://docs.getpinry.com/install-with-docker/](https://docs.getpinry.com/install-with-docker/)
