@@ -29,6 +29,9 @@ module.exports = {
     Tags: 'タグ:',
     Review: 'レビュー中',
   },
+  boards: {
+    pinsInBoard: '画像の数:',
+  },
   pinCreateModal: {
     newPin: 'ニューピン',
     pinEdit: 'ピンを編集',

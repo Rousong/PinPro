@@ -29,6 +29,9 @@ module.exports = {
     Tags: '标签:',
     Review: '审核中',
   },
+  boards: {
+    pinsInBoard: '分类下图片:',
+  },
   pinCreateModal: {
     newPin: '创建新的贴图',
     pinEdit: '编辑贴图',

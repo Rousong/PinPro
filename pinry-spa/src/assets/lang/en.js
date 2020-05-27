@@ -28,6 +28,9 @@ module.exports = {
     Tags: 'Tags:',
     Review: 'In Review',
   },
+  boards: {
+    pinsInBoard: 'Pins in board:',
+  },
   pinCreateModal: {
     newPin: 'New Pin',
     pinEdit: 'Pin Edit',

@@ -38,7 +38,7 @@
                     <p class="sub-title board-info">{{ item.name }}</p>
                     <p class="description">
                       <small>
-                        Pins in board: <span class="num-pins">{{ item.total_pins }}</span>
+                        {{$t("boards.pinsInBoard")}}<span class="num-pins">{{ item.total_pins }}</span>
                       </small>
                     </p>
                   </div>
@@ -250,13 +250,24 @@ export default {
 /* grid */
 @import 'utils/pin';
 
+@media screen and (min-width: 270px) {
+      .grid-sizer,
+      .grid-item { width: 48%;}
+  }
+@media screen and (min-width: 550px) {
+       .grid-sizer,
+       .grid-item { width: $pin-preview-width; }
+   }
+/*
 .grid-sizer,
 .grid-item { width: $pin-preview-width; }
+*/
+
 .grid-item {
   margin-bottom: 15px;
 }
 .gutter-sizer {
-  width: 15px;
+  width: 10px;
 }
 
 /* card */
