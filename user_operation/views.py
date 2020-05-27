@@ -28,7 +28,7 @@ class UserLikesViewset(viewsets.GenericViewSet, mixins.CreateModelMixin,
     # pagination_class = Pagination
 
     def get_queryset(self):
-        return UserLikes.objects.filter(user=self.request.user).order_by('-published')
+        return UserLikes.objects.filter(user=self.request.user).order_by('-id')
 
     # 用get_serializer_class 设置动态的Serializer
     def get_serializer_class(self):

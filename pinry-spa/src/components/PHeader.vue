@@ -112,14 +112,14 @@
                 {{$t("pHeader.language")}}
               </a>
               <div class="navbar-dropdown">
+                <a @click="changeLang('en')" class="navbar-item">
+                  English
+                </a>
                 <a @click="changeLang('zh')" class="navbar-item">
                   中文
                 </a>
                 <a @click="changeLang('ja')" class="navbar-item">
                   日本語
-                </a>
-                <a @click="changeLang('en')" class="navbar-item">
-                  English
                 </a>
               </div>
             </div>
