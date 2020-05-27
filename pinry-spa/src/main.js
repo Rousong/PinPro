@@ -57,6 +57,16 @@ Vue.filter('formatDate', (value, fmt) => {
   return fmt;
 });
 
+Vue.filter('formatNum', (num) => {
+  if (num >= 1000000) {
+    return `${(num / 1000000).toFixed(1).replace(/.0$/, '')}w`;
+  }
+  if (num >= 1000) {
+    return `${(num / 1000).toFixed(1).replace(/.0$/, '')}k`;
+  }
+  return num;
+});
+
 new Vue({
   router,
   i18n,

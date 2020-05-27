@@ -5,7 +5,7 @@
       <div class="column is-6"><img :src="pinItem.large_image_url" alt="" @click="showImg">
       <div class="card-content">
             <div class="content">
-                <p class="description title">{{ pinItem.description }}</p>
+                <p class="description">{{ pinItem.description }}</p>
             </div>
             <div class="media">
               <div class="media-left">
@@ -20,7 +20,7 @@
                       <i v-show= "!loading" class="fas fa-heart fa-3x "></i><img src='../assets/loader.gif' v-show="loading"></span>
                     <span v-else class="icon heart" @click="addCollect()">
                       <i v-show= "!loading" class="far fa-heart fa-3x "></i><img src='../assets/loader.gif' v-show="loading"></span>
-                      <span class="dim" v-show="pinItem.likes_num>0">&nbsp;&nbsp;{{ pinItem.likes_num }}</span>
+                      <span class="dim" v-show="pinItem.likes_num>0">&nbsp;&nbsp;{{ pinItem.likes_num |formatNum(pinItem.likes_num)}}</span>
                   </p>
                 <div class="is-pulled-left">
                   <p class="subtitle is-10" v-show="pinItem.tags.length > 0">
