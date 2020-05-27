@@ -143,7 +143,7 @@ export default {
         loggedIn: false,
         meta: {},
       },
-      explanation: '拖动此处到书签中，然后在有图的页面点击书签',
+      explanation: 'Drag here to bookmark',
     };
   },
   computed: {

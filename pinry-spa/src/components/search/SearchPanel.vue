@@ -115,9 +115,9 @@ export default {
 
 <style scoped="scoped" lang="scss">
   .search-panel {
-    padding-top: 3rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-top: 0.2rem;
+    padding-left: 0rem;
+    padding-right: 0rem;
   }
   .filter-selector {
     background-color: white;
