@@ -2,7 +2,7 @@
   <!--分页组件-->
   <div class="pageComponent" v-if="pageConfig.total">
       <!--上一页-->
-      <button @click="prePage" :disabled="currentPage === 1">上一页</button>
+    <button @click="prePage" :disabled="currentPage === 1"> &lt;&lt; </button>
       <!--总页数小于8的-->
       <template v-if="pageTotal <= showPageNo">
         <button v-for="i in pageTotal" @click="changeCurrentPage(i)" :class="{active:i === currentPage}" :key="i">{{i}}</button>
@@ -29,7 +29,7 @@
         <button @click="changeCurrentPage(pageTotal)">{{pageTotal}}</button>
       </template>
       <!--下一页-->
-      <button @click="nextPage" :disabled="currentPage === pageTotal">下一页</button>
+      <button @click="nextPage" :disabled="currentPage === pageTotal">&gt;&gt;</button>
     </div>
 </template>
 
