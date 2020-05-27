@@ -20,6 +20,7 @@
                 </b-icon>
               </p>
               <p>{{$t("fileUpload.DropFile")}}</p>
+              <p>&lt;1Mb</p>
             </div>
           </section>
         </b-upload>

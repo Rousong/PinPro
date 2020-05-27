@@ -30,6 +30,6 @@ export default {
     color:rgb(2, 80, 22);
   }
   a:hover,a:active{
-    color:green;
+    color:rgb(2, 80, 22);
   }
 </style>

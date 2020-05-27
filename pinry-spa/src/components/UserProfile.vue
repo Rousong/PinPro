@@ -13,13 +13,13 @@
           <p>
             <span class='title is-bold'>{{ editorMeta.user.meta.username }}</span>
             <br>
-            <a @click="editPreferences" class='button is-primary is-outlined' href='#' id='edit-preferences' style='margin: 5px 0'>
-              Edit Preferences
-            </a>
+<!--            <a @click="editPreferences" class='button is-primary is-outlined' href='#' id='edit-preferences' style='margin: 5px 0'>-->
+<!--              Edit Preferences-->
+<!--            </a>-->
             <br>
           </p>
           <p class='tagline'>
-            {{editorMeta.user.meta.description}}
+            {{editorMeta.user.meta.email}}
           </p>
         </div>
         <div class='column is-2-tablet is-4-mobile has-text-centered'>
@@ -37,12 +37,39 @@
       </div>
     </div>
   </div>
+  <hr />
+  <div class="tabs is-boxed is-centered">
+  <ul>
+    <li class="is-active">
+      <a>
+        <span class="icon is-small"><i class="fas fa-file-alt" aria-hidden="true"></i></span>
+        <span>About</span>
+      </a>
+    </li>
+    <li>
+      <a>
+        <span class="icon is-small"><i class="fab fa-android" aria-hidden="true"></i></span>
+        <span>Andorid</span>
+      </a>
+    </li>
+    <li>
+      <a>
+        <span class="icon is-small"><i class="fab fa-apple" aria-hidden="true"></i></span>
+        <span>IOS</span>
+      </a>
+    </li>
+    <li>
+      <a>
+        <span class="icon is-small"><i class="fas fa-desktop" aria-hidden="true"></i></span>
+        <span>PC</span>
+      </a>
+    </li>
+  </ul>
+</div>
 </div>
     <footer class="footer">
       <div class="content has-text-centered">
-        <p><strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
-          <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
-          is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+        <p>Powered by <a href="https://github.com/Pinpro/PinPro"><strong>PinPro</strong></a>. 如果有任何问题请联系站长.
         </p>
       </div>
     </footer>

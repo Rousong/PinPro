@@ -17,7 +17,7 @@ module.exports = {
     },
   },
   pwa: {
-    name: 'Pinry Mobile',
+    name: 'PinPro Mobile',
     appleMobileWebAppCapable: 'yes',
     appleMobileWebAppStatusBarStyle: 'black',
     // configure the workbox plugin
