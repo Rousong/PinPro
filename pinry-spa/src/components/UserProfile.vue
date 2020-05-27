@@ -40,32 +40,53 @@
   <hr />
   <div class="tabs is-boxed is-centered">
   <ul>
-    <li class="is-active">
-      <a>
-        <span class="icon is-small"><i class="fas fa-file-alt" aria-hidden="true"></i></span>
-        <span>About</span>
-      </a>
-    </li>
-    <li>
-      <a>
-        <span class="icon is-small"><i class="fab fa-android" aria-hidden="true"></i></span>
-        <span>Andorid</span>
-      </a>
-    </li>
-    <li>
-      <a>
-        <span class="icon is-small"><i class="fab fa-apple" aria-hidden="true"></i></span>
-        <span>IOS</span>
-      </a>
-    </li>
-    <li>
-      <a>
-        <span class="icon is-small"><i class="fas fa-desktop" aria-hidden="true"></i></span>
-        <span>PC</span>
-      </a>
-    </li>
+    <li  v-for="(item,index) in menuItems" :key="item.index" @click="addClass(index)"
+             :class="{'is-active':position === index}"><a v-html="item"></a></li>
   </ul>
 </div>
+    <section class="section" v-if="position==='doc'">
+    <div class="container">
+      <h2 class="title">关于头像</h2>
+      <p class="subtitle">
+         本站使用<strong>Gravatar</strong>来上传和储存您的头像
+        请使用注册时的邮箱来<a href="https://gravatar.com" target="_blank">申请<strong>Gravatar</strong></a>!
+        如果需要修改邮箱，请联系站长。
+      </p>
+      <figure class="image is-128x128">
+          <img src="https://bulma.io/images/placeholders/128x128.png">
+      </figure>
+      <h1 class="title">
+        <span style="color: blue">Hello</span> World
+      </h1>
+      <p class="subtitle" style="color: purple">
+        My first website with <strong>Bulma</strong>!
+      </p>
+    </div>
+  </section>
+  <section class="section" v-if="position==='android'">
+    <div class="container">
+      <h2 class="title">安卓界面</h2>
+      <figure class="image is-128x128">
+          <img src="https://bulma.io/images/placeholders/128x128.png">
+      </figure>
+    </div>
+  </section>
+  <section class="section" v-if="position==='apple'">
+    <div class="container">
+      <h2 class="title">苹果界面</h2>
+      <figure class="image is-128x128">
+          <img src="https://bulma.io/images/placeholders/128x128.png">
+      </figure>
+    </div>
+  </section>
+  <section class="section" v-if="position==='pc'">
+    <div class="container">
+      <h2 class="title">pc界面</h2>
+      <figure class="image is-128x128">
+          <img src="https://bulma.io/images/placeholders/128x128.png">
+      </figure>
+    </div>
+  </section>
 </div>
     <footer class="footer">
       <div class="content has-text-centered">
@@ -90,6 +111,13 @@ function initialData() {
       userPins: 0,
       userBoards: 0,
     },
+    menuItems: {
+      doc: '<span class="icon is-small"><i class="fas fa-file-alt" aria-hidden="true"></i></span><span>About</span>',
+      android: '<span class="icon is-small"><i class="fab fa-android" aria-hidden="true"></i></span><span>Andorid</span>',
+      apple: '<span class="icon is-small"><i class="fab fa-apple" aria-hidden="true"></i></span><span>IOS</span>',
+      pc: '<span class="icon is-small"><i class="fas fa-desktop" aria-hidden="true"></i></span><span>PC</span>',
+    },
+    position: 'doc',
   };
 }
 export default {
@@ -122,6 +150,7 @@ export default {
           if (user === null) {
             self.editorMeta.user.loggedIn = false;
             self.editorMeta.user.meta = {};
+            this.$router.push({ path: '/' });
           } else {
             self.editorMeta.user.meta = user;
             self.editorMeta.user.meta.avatar = `//gravatar.com/avatar/${user.gravatar}`;
@@ -155,6 +184,9 @@ export default {
         this,
         { username: this.editorMeta.user.meta.username },
       );
+    },
+    addClass(index) {
+      this.position = index;
     },
   },
   created() {
