@@ -24,15 +24,15 @@
         </div>
         <div class='column is-2-tablet is-4-mobile has-text-centered'>
           <p class='stat-val'>{{userCnt.userLikes}}</p>
-          <p class='stat-key'>Likes</p>
+          <p class='stat-key'>{{$t("profile.likes")}}</p>
         </div>
         <div class='column is-2-tablet is-4-mobile has-text-centered'>
           <p class='stat-val'>{{userCnt.userPins}}</p>
-          <p class='stat-key'>Pins</p>
+          <p class='stat-key'>{{$t("profile.pins")}}</p>
         </div>
         <div class='column is-2-tablet is-4-mobile has-text-centered'>
           <p class='stat-val'>{{userCnt.userBoards}}</p>
-          <p class='stat-key'>Boards</p>
+          <p class='stat-key'>{{$t("profile.boards")}}</p>
         </div>
       </div>
     </div>
@@ -46,51 +46,145 @@
 </div>
     <section class="section" v-if="position==='doc'">
     <div class="container">
-      <h2 class="title">关于头像</h2>
-      <p class="subtitle">
-         本站使用<strong>Gravatar</strong>来上传和储存您的头像
-        请使用注册时的邮箱来<a href="https://gravatar.com" target="_blank">申请<strong>Gravatar</strong></a>!
-        如果需要修改邮箱，请联系站长。
+      <div class="notification is-info">
+        <h1 class="title">{{$t("profile.about1")}}</h1>
+         <p class="subtitle" :v-html="$t('profile.about1')">
+         {{$t("profile.about2")}}<a href="https://gravatar.com" target="_blank"><strong>Gravatar</strong></a>!
+        {{$t("profile.about3")}}<a href=mailto:sample@163.com>sample@163.com</a>
       </p>
-      <figure class="image is-128x128">
-          <img src="https://bulma.io/images/placeholders/128x128.png">
-      </figure>
-      <h1 class="title">
-        <span style="color: blue">Hello</span> World
-      </h1>
-      <p class="subtitle" style="color: purple">
-        My first website with <strong>Bulma</strong>!
-      </p>
+      </div>
+      <div class="notification is-danger">
+        <p class="subtitle">
+        {{$t("profile.about4")}}
+       </p>
+      </div>
+      <div class="notification is-success">
+        <p class="subtitle">
+        {{$t("profile.about5")}}
+       </p>
+      </div>
     </div>
   </section>
   <section class="section" v-if="position==='android'">
     <div class="container">
-      <h2 class="title">安卓界面</h2>
-      <figure class="image is-128x128">
-          <img src="https://bulma.io/images/placeholders/128x128.png">
+      <div class="notification is-info">
+      {{$t("profile.android1")}}
+      </div>
+      <figure class="image docImage">
+          <img src='../assets/img/android/android1.jpg' >
+      </figure>
+      <br/>
+      <div class="notification is-info">
+      {{$t("profile.android2")}}
+      </div>
+       <figure class="image docImage">
+          <img src='../assets/img/android/android2.jpg' >
+      </figure>
+      <br/>
+      <div class="notification is-info">
+      {{$t("profile.android3")}}
+      </div>
+       <figure class="image docImage">
+          <img src='../assets/img/android/android3.jpg' >
+      </figure>
+      <br/>
+      <div class="notification is-info">
+      {{$t("profile.android4")}}
+      </div>
+       <figure class="image docImage">
+          <img src='../assets/img/android/android4.jpg' >
+      </figure>
+      <br/>
+      <div class="notification is-info">
+      {{$t("profile.android5")}}
+      </div>
+       <figure class="image docImage">
+          <img src='../assets/img/android/android5.jpg' >
       </figure>
     </div>
   </section>
   <section class="section" v-if="position==='apple'">
     <div class="container">
-      <h2 class="title">苹果界面</h2>
-      <figure class="image is-128x128">
-          <img src="https://bulma.io/images/placeholders/128x128.png">
+      <br/>
+      <div class="notification is-success">
+     {{$t("profile.apple1")}}
+      </div>
+      <figure class="image docImage">
+          <img src='../assets/img/IOS/ios1.jpg' >
+      </figure>
+      <br/>
+      <div class="notification is-success">
+      {{$t("profile.android2")}}
+      </div>
+      <figure class="image docImage">
+          <img src='../assets/img/IOS/ios2.jpg' >
+      </figure>
+      <br/>
+      <div class="notification is-success">
+      {{$t("profile.android3")}}
+      </div>
+      <figure class="image docImage">
+          <img src='../assets/img/IOS/ios3.jpg' >
+      </figure>
+      <br/>
+      <div class="notification is-success">
+      {{$t("profile.android5")}}
+      </div>
+      <figure class="image docImage">
+          <img src='../assets/img/IOS/ios4.jpg' >
       </figure>
     </div>
   </section>
   <section class="section" v-if="position==='pc'">
     <div class="container">
-      <h2 class="title">pc界面</h2>
-      <figure class="image is-128x128">
-          <img src="https://bulma.io/images/placeholders/128x128.png">
+      <br/>
+      <div class="notification is-warning">
+      {{$t("profile.pc1")}}
+      </div>
+      <figure class="image docImagePc">
+          <img src='../assets/img/pc/pc1.jpg' >
+      </figure>
+      <br/>
+      <div class="notification is-warning">
+      {{$t("profile.pc2")}}
+      </div>
+      <figure class="image docImagePc">
+          <img src='../assets/img/pc/pc2.jpg' >
+      </figure>
+      <br/>
+      <div class="notification is-warning">
+      {{$t("profile.pc3")}}
+      </div>
+      <figure class="image docImagePc">
+          <img src='../assets/img/pc/pc3.jpg' >
+      </figure>
+      <br/>
+      <div class="notification is-warning">
+      {{$t("profile.pc4")}}
+      </div>
+      <figure class="image docImagePc">
+          <img src='../assets/img/pc/pc4.jpg' >
+      </figure>
+      <br/>
+      <div class="notification is-warning">
+      {{$t("profile.pc5")}}
+      </div>
+      <figure class="image docImagePc">
+          <img src='../assets/img/pc/pc5.jpg' >
+      </figure>
+      <br/>
+      <div class="notification is-warning">
+      {{$t("profile.pc6")}}
+      </div>
+      <figure class="image docImagePc">
+          <img src='../assets/img/pc/pc6.jpg' >
       </figure>
     </div>
   </section>
 </div>
     <footer class="footer">
       <div class="content has-text-centered">
-        <p>Powered by <a href="https://github.com/Pinpro/PinPro"><strong>PinPro</strong></a>. 如果有任何问题请联系站长.
+        <p>Powered by <a href="https://github.com/Pinpro/PinPro"><strong>PinPro</strong></a>. {{$t("profile.footer")}}
         </p>
       </div>
     </footer>
@@ -223,5 +317,13 @@ export default {
     margin-bottom: 20px;
     padding: 20px;
     background-color: #F1F1F1;
+  }
+  .docImage{
+    min-width: 300px;
+    max-width: 40%;
+  }
+  .docImagePc{
+    min-width: 300px;
+    max-width: 80%;
   }
 </style>
