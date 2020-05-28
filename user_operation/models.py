@@ -23,8 +23,8 @@ class UserLikes(BaseModel):
     """
     Pin
     """
-    user = models.ForeignKey(UserInfo, verbose_name="用户")
-    pin = models.ForeignKey(Pin, verbose_name="Pin", help_text="Pin图")
+    user = models.ForeignKey(UserInfo, on_delete=models.CASCADE, verbose_name="用户")
+    pin = models.ForeignKey(Pin, on_delete=models.CASCADE, verbose_name="Pin", help_text="Pin图")
 
     class Meta:
         verbose_name = "用户点赞"

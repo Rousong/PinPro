@@ -5,7 +5,7 @@ from .models import UserLikes, UserOperation
 
 # Register your models here.
 class UserLikesAdmin(admin.ModelAdmin):
-    list_display = ('user', 'pin','update_time')
+    list_display = ('id', 'user', 'pin','update_time')
     list_filter = ["user", ]
     search_fields = ["pin", ]
     readonly_fields = ['user', 'pin', 'update_time']
