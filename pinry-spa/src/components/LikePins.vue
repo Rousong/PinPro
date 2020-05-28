@@ -106,6 +106,7 @@ function createImageItem(like) {
     height: `${like.pin.image.thumbnail.height}px`,
   };
   image.published = like.pin.published;
+  image.likes_num = like.pin.likes_num;
   image.class = {};
   return image;
 }
