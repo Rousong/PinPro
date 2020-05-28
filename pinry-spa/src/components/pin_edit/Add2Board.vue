@@ -67,13 +67,13 @@ export default {
         );
         Promise.all(promises).then(
           () => {
-            this.$buefy.toast.open('Succeed to add pin to boards');
+            this.$buefy.toast.open(this.$i18n.t('add2Board.msg_ok'));
             this.$parent.close();
           },
           () => {
             this.$buefy.toast.open(
               {
-                message: 'Failed to add pin to boards',
+                message: this.$i18n.t('add2Board.msg_fail'),
                 type: 'is-danger',
               },
             );

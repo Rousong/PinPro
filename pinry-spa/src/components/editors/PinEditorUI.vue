@@ -74,16 +74,16 @@ export default {
     },
     removeFromBoard() {
       this.$buefy.dialog.confirm({
-        message: 'Remove Pin from Board?',
+        message: this.$i18n.t('editUI.msg_remove'),
         onConfirm: () => {
           API.Board.removeFromBoard(this.currentBoard.id, [this.pin.id]).then(
             () => {
-              this.$buefy.toast.open('Pin removed');
+              this.$buefy.toast.open(this.$i18n.t('editUI.msg_remove_ok'));
               this.$emit('pin-remove-from-board-succeed', this.pin.id);
             },
             () => {
               this.$buefy.toast.open(
-                { type: 'is-danger', message: 'Failed to Remove Pin' },
+                { type: 'is-danger', message: this.$i18n.t('editUI.msg_remove_fail') },
               );
             },
           );
@@ -103,16 +103,16 @@ export default {
     },
     deletePin() {
       this.$buefy.dialog.confirm({
-        message: 'Delete this Pin?',
+        message: this.$i18n.t('editUI.msg_del_pin'),
         onConfirm: () => {
           API.Pin.deleteById(this.pin.id).then(
             () => {
-              this.$buefy.toast.open('Pin deleted');
+              this.$buefy.toast.open(this.$i18n.t('editUI.msg_ok_pin'));
               this.$emit('pin-delete-succeed', this.pin.id);
             },
             () => {
               this.$buefy.toast.open(
-                { type: 'is-danger', message: 'Failed to delete Pin' },
+                { type: 'is-danger', message: this.$i18n.t('editUI.msg_fail_pin') },
               );
             },
           );

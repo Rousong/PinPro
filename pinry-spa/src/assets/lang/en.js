@@ -59,6 +59,19 @@ module.exports = {
   },
   add2Board: {
     add2Board: 'Add Pin to Board',
+    msg_ok: 'Succeed to add pin to boards',
+    msg_fail: 'Failed to add pin to boards',
+  },
+  editUI: {
+    msg_del_board: 'Delete this Board?',
+    msg_ok_board: 'Board deleted',
+    msg_fail_board: 'Failed to delete Board',
+    msg_remove: 'Remove Pin from Board?',
+    msg_remove_ok: 'Pin removed',
+    msg_remove_fail: 'Failed to Remove Pin',
+    msg_del_pin: 'Delete this Pin?',
+    msg_ok_pin: 'Pin deleted',
+    msg_fail_pin: 'Failed to delete Pin',
   },
   boardEdit: {
     boardCreate: 'Board Create',

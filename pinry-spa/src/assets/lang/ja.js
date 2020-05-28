@@ -60,6 +60,19 @@ module.exports = {
   },
   add2Board: {
     add2Board: 'カテゴリーに追加',
+    msg_ok: '追加成功',
+    msg_fail: '追加失敗',
+  },
+  editUI: {
+    msg_del_board: 'カテゴリーを削除しますか？',
+    msg_ok_board: 'カテゴリーを削除しました',
+    msg_fail_board: '削除失敗でした',
+    msg_remove: 'カテゴリーから画像を削除しますか？',
+    msg_remove_ok: '画像を削除しました',
+    msg_remove_fail: '画像削除失敗でした',
+    msg_del_pin: '画像を削除しますか',
+    msg_ok_pin: '削除しました',
+    msg_fail_pin: '削除失敗！',
   },
   boardEdit: {
     boardCreate: 'カテゴリー作成',

@@ -60,6 +60,19 @@ module.exports = {
   },
   add2Board: {
     add2Board: '添加贴图到分类',
+    msg_ok: '成功添加到此分类',
+    msg_fail: '添加分类失败！',
+  },
+  editUI: {
+    msg_del_board: '删除此分类？',
+    msg_ok_board: '分类成功删除',
+    msg_fail_board: '分类删除失败',
+    msg_remove: '从此分类中移除此贴图？',
+    msg_remove_ok: '贴图已移除',
+    msg_remove_fail: '贴图移除失败！',
+    msg_del_pin: '删除此贴图？',
+    msg_ok_pin: '贴图成功删除',
+    msg_fail_pin: '贴图删除失败！',
   },
   boardEdit: {
     boardCreate: '创建分类',
