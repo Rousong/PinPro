@@ -5,7 +5,7 @@ from django.test.utils import override_settings
 import mock
 
 from .auth.backends import CombinedAuthBackend
-from .models import User
+from .models import UserInfo
 
 
 def mock_requests_get(url, headers=None):
@@ -19,7 +19,7 @@ class CombinedAuthBackendTest(TestCase):
         self.username = 'jdoe'
         self.email = 'jdoe@example.com'
         self.password = 'password'
-        User.objects.create_user(username=self.username, email=self.email, password=self.password)
+        UserInfo.objects.create_user(username=self.username, email=self.email, password=self.password)
 
     def test_authenticate_username(self):
         self.assertTrue(self.backend.authenticate(username=self.username, password=self.password))
@@ -66,7 +66,7 @@ class CreateUserTest(TestCase):
 
 class LogoutViewTest(TestCase):
     def setUp(self):
-        User.objects.create_user(username='jdoe', password='password')
+        UserInfo.objects.create_user(username='jdoe', password='password')
         self.client.login(username='jdoe', password='password')
 
     def test_logout_view(self):
