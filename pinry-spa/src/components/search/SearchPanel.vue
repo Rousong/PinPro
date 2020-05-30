@@ -2,12 +2,10 @@
   <div class="search-panel">
     <div class="filter-selector">
       <div class="card-content">
-        <b-field>
-           <template v-for="tag in options.HotTags">
-                      <button v-bind:key="tag" class="button is-light search-tag" @click="goTagFilter(tag)">{{ tag }}</button>
-            </template>
-          </b-field>
-        <b-field>
+         <template v-for="tag in options.HotTags">
+           <button v-bind:key="tag" class="button is-light search-tag" @click="goTagFilter(tag)">{{ tag }}</button>
+          </template>
+          <b-field>
           <b-select :placeholder="$t('searchPanel.choose')" v-model="filterType">
             <option value="Tag">{{$t("searchPanel.tag")}}</option>
             <option value="Board">{{$t("searchPanel.board")}}</option>
