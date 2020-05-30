@@ -3,6 +3,11 @@
     <div class="filter-selector">
       <div class="card-content">
         <b-field>
+           <template v-for="tag in options.HotTags">
+                      <button v-bind:key="tag" class="button is-light search-tag" @click="goTagFilter(tag)">{{ tag }}</button>
+            </template>
+          </b-field>
+        <b-field>
           <b-select :placeholder="$t('searchPanel.choose')" v-model="filterType">
             <option value="Tag">{{$t("searchPanel.tag")}}</option>
             <option value="Board">{{$t("searchPanel.board")}}</option>
@@ -49,6 +54,7 @@ export default {
       selectedOption: [],
       options: {
         Tag: [],
+        HotTags: [],
       },
       name: '',
       boardText: '',
@@ -71,6 +77,11 @@ export default {
         'selected',
         { filterType: this.filterType, selected: this.boardText },
       );
+    },
+    goTagFilter(tag) {
+      this.filterType = 'Tag';
+      this.name = tag;
+      this.selected = tag;
     },
   },
   watch: {
@@ -109,6 +120,17 @@ export default {
         this.options.Tag = options;
       },
     );
+    api.Tag.fetchHotList().then(
+      (resp) => {
+        const hotList = [];
+        resp.data.forEach(
+          (tag) => {
+            hotList.push(tag.name);
+          },
+        );
+        this.options.HotTags = hotList;
+      },
+    );
   },
 };
 </script>
@@ -126,4 +148,8 @@ export default {
       width: 100%;
     }
   }
+  .search-tag {
+  margin-right: 0.8rem;
+  margin-bottom: 2px;
+}
 </style>

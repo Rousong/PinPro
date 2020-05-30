@@ -1,5 +1,6 @@
 from rest_framework import routers
-from core.views import PinViewSet, ImageViewSet, BoardViewSet, TagAutoCompleteViewSet, BoardAutoCompleteViewSet
+from core.views import PinViewSet, ImageViewSet, BoardViewSet, TagAutoCompleteViewSet,\
+    BoardAutoCompleteViewSet, HotTagViewSet
 from user_operation.views import UserLikesViewset, UserOperationViewSet
 from users.views import UserViewSet, UserListViewSet
 from comments.views import CommentViewSet
@@ -9,6 +10,7 @@ drf_router.register(r'pins', PinViewSet, basename="pin")
 drf_router.register(r'images', ImageViewSet)
 drf_router.register(r'boards', BoardViewSet, basename="board")
 drf_router.register(r'tags-auto-complete', TagAutoCompleteViewSet)
+drf_router.register(r'hot_tags', HotTagViewSet)
 drf_router.register(r'boards-auto-complete', BoardAutoCompleteViewSet, base_name="board")
 
 drf_router.register(r'like', UserLikesViewset, base_name="user_likes")  # 点赞

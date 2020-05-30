@@ -274,6 +274,10 @@ const Tag = {
     const url = `${API_PREFIX}tags-auto-complete/`;
     return axios.get(url);
   },
+  fetchHotList() {
+    const url = `${API_PREFIX}hot_tags/`;
+    return axios.get(url);
+  },
 };
 // 点赞
 function addLike(pinId) {

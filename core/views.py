@@ -2,6 +2,7 @@ from django.utils.decorators import method_decorator
 from django.views.decorators.cache import cache_page
 from django_filters.rest_framework import DjangoFilterBackend
 from django.db.models import Q
+from django.db.models.aggregates import Count
 from rest_framework import viewsets, mixins
 from rest_framework.filters import SearchFilter, OrderingFilter
 from rest_framework.viewsets import GenericViewSet
@@ -71,9 +72,22 @@ class TagAutoCompleteViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
     serializer_class = api.TagAutoCompleteSerializer
     pagination_class = None
 
-    @method_decorator(cache_page(60 * 5))
+    @method_decorator(cache_page(60 * 10))
     def list(self, request, *args, **kwargs):
         return super(TagAutoCompleteViewSet, self).list(
+            request,
+            *args,
+            **kwargs
+        )
+
+class HotTagViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
+    queryset = Tag.objects.annotate(total_num=Count('pin')).filter(total_num__gt=0).order_by('-total_num')[:30]
+    serializer_class = api.TagAutoCompleteSerializer
+    pagination_class = None
+
+    @method_decorator(cache_page(60 * 60))
+    def list(self, request, *args, **kwargs):
+        return super(HotTagViewSet, self).list(
             request,
             *args,
             **kwargs
