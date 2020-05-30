@@ -110,7 +110,7 @@ module.exports = {
     noResults: '没有找到任何结果',
   },
   pinPreview: {
-    OriginalImage: '原始贴图地址',
+    OriginalImage: '原图地址',
     GotoPinLink: '贴图地址',
     Referer: '来源网站',
   },

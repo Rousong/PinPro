@@ -10,7 +10,6 @@ import PinCreate from '../views/PinCreate.vue';
 import Search from '../views/Search.vue';
 import UserInfo from '../views/UserInfo.vue';
 import PageNotFound from '../views/PageNotFound.vue';
-// import LikePins from '../components/LikePins.vue';
 import Pins4Likes from '../views/Pins4Likes.vue';
 import PinRanking from '../views/PinRanking.vue';
 

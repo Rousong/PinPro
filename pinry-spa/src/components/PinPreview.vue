@@ -17,9 +17,9 @@
                   <p class="title is-6 pin-meta-info"><span class="dim">{{$t("pins.PinnedBy")}}&nbsp;&nbsp;</span>
                     <span class="author">{{ pinItem.author }}</span>
                     <span v-if="hasLiked" class="icon heart" @click="deleteCollect()" style="color:Tomato">
-                      <i v-show= "!loading" class="fas fa-heart fa-3x "></i><img src='../assets/loader.gif' v-show="loading"></span>
+                      <i v-show= "!loading" class="fas fa-heart fa-2x "></i><img src='../assets/loader.gif' v-show="loading"></span>
                     <span v-else class="icon heart" @click="addCollect()">
-                      <i v-show= "!loading" class="far fa-heart fa-3x "></i><img src='../assets/loader.gif' v-show="loading"></span>
+                      <i v-show= "!loading" class="far fa-heart fa-2x "></i><img src='../assets/loader.gif' v-show="loading"></span>
                       <small><span class="dim" v-show="pinItem.likes_num>0">&nbsp;&nbsp;{{ pinItem.likes_num |formatNum(pinItem.likes_num)}}</span></small>
                   </p>
                 <div class="is-pulled-left">
@@ -60,6 +60,7 @@
                       type="is-success">
                       {{$t("pinPreview.GotoPinLink")}}
                   </b-button>
+                  <a class="icon download" :href="pinItem.large_image_url" :download="pinItem.large_image_url"><i class="fas fa-download fa-1x "></i></a>
                 </div>
               </div>
           </div>
@@ -214,6 +215,10 @@ export default {
 }
 
 .heart{
-  margin-left: 30px;
+  margin-left: 20px;
 }
+.download{
+  margin-left: 10px;
+}
+
 </style>
