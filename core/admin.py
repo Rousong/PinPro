@@ -41,7 +41,7 @@ class BoardAdmin(admin.ModelAdmin):
     def pinsID(self, obj):
         return [a.id for a in obj.pins.all()]
 
-    list_display = ('submitter', 'name', 'private', 'published', 'pinsID')
+    list_display = ('id', 'submitter', 'name', 'private', 'published', 'pinsID')
     filter_horizontal = ['pins', ]
 
 
