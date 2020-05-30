@@ -30,9 +30,10 @@ class PinAdmin(admin.ModelAdmin):
                     'likes_num', 'tag_name', 'published')
     # filter_horizontal = ['likes', ]
     search_fields = ['id', ]
-    readonly_fields = ['image', 'image_data', 'tag_name', 'tags']
+    readonly_fields = ['image', 'image_data']
     list_editable = ["check", ]
     list_filter = ["check", "submitter", ]
+    list_per_page = 30
 
 
 class BoardAdmin(admin.ModelAdmin):
