@@ -2,6 +2,7 @@ import Buefy from 'buefy';
 import Vue from 'vue';
 import { VueMasonryPlugin } from 'vue-masonry';
 import VueI18n from 'vue-i18n';
+import VueAnalytics from 'vue-analytics';
 import App from './App.vue';
 import router from './router';
 import setUpAxiosCsrfConfig from './components/utils/csrf';
@@ -12,6 +13,10 @@ Vue.use(Buefy);
 Vue.use(VueMasonryPlugin);
 Vue.use(VueI18n);
 setUpAxiosCsrfConfig();
+Vue.use(VueAnalytics, {
+  id: 'UA-125854450-3',
+  router,
+});
 
 function getBrouserLang(defaultValue) {
   const langClip = navigator.language.substr(0, 2); // 获取浏览器配置语言前两位;
