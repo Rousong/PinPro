@@ -89,7 +89,7 @@
                 <a
                   @click="signUp"
                   v-show="!user.loggedIn"
-                  class="button is-primary">
+                  class="button is-warning">
                   <strong>{{$t("pHeader.signUp")}}</strong>
                 </a>
                 <a

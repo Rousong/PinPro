@@ -14,7 +14,7 @@
     <b-field>
       <button
         @click="createNewBoard"
-        class="button is-primary">
+        class="button is-warning">
         {{$t("filterSelect.createNewBoard")}}
       </button>
     </b-field>

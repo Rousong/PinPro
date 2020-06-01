@@ -24,7 +24,7 @@
           <button class="button" type="button" @click="$parent.close()">{{$t("pinCreateModal.close")}}</button>
           <button
             @click="doAdd2Board"
-            class="button is-primary">{{$t("add2Board.add2Board")}}
+            class="button is-warning">{{$t("add2Board.add2Board")}}
           </button>
         </footer>
       </div>

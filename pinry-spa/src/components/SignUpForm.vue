@@ -56,7 +56,7 @@
           <button class="button" type="button" @click="$parent.close()">{{$t("signUpForm.close")}}</button>
           <button
             @click="doRegister"
-            class="button is-primary">{{$t("signUpForm.signUp")}}</button>
+            class="button is-warning">{{$t("signUpForm.signUp")}}</button>
         </footer>
       </div>
     </div>

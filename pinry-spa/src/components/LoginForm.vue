@@ -35,7 +35,7 @@
           <button class="button" type="button" @click="$parent.close()">{{$t("loginForm.close")}}</button>
           <button
             @click="doLogin"
-            class="button is-primary">{{$t("loginForm.login")}}</button>
+            class="button is-warning">{{$t("loginForm.login")}}</button>
         </footer>
       </div>
     </div>

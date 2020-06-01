@@ -52,12 +52,12 @@
           <button
             v-if="!isEdit"
             @click="createBoard"
-            class="button is-primary">{{$t("boardEdit.createBoard")}}
+            class="button is-warning">{{$t("boardEdit.createBoard")}}
           </button>
           <button
             v-if="isEdit"
             @click="saveBoardChanges"
-            class="button is-primary">{{$t("pinCreateModal.save")}}
+            class="button is-warning">{{$t("pinCreateModal.save")}}
           </button>
         </footer>
       </div>

@@ -88,12 +88,12 @@
           <button
             v-if="!isEdit"
             @click="createPin"
-            class="button is-primary">{{$t("pinCreateModal.createPin")}}
+            class="button is-warning">{{$t("pinCreateModal.createPin")}}
           </button>
           <button
             v-if="isEdit"
             @click="savePin"
-            class="button is-primary">{{$t("pinCreateModal.save")}}
+            class="button is-warning">{{$t("pinCreateModal.save")}}
           </button>
         </footer>
       </div>

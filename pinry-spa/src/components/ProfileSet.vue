@@ -66,7 +66,7 @@
           </p>
         </section>
         <footer class='modal-card-foot'>
-          <a class='button is-primary modal-save'>Save changes</a>
+          <a class='button is-warning modal-save'>Save changes</a>
           <a class='button modal-cancel'>Cancel</a>
         </footer>
       </div>

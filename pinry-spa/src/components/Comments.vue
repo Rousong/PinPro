@@ -2,7 +2,7 @@
   <div class="comment-list">
     <div class="top-title">
       <span>{{ total }} {{$t("comment.total")}}</span>&nbsp;&nbsp;
-      <button class="button is-primary is-small is-outlined" v-show= "!loading" @click="refreshComments">{{$t("comment.reflash")}}</button>
+      <button class="button is-warning is-small is-outlined" v-show= "!loading" @click="refreshComments">{{$t("comment.reflash")}}</button>
       <img src='../assets/loading.gif' v-show="loading">
     </div>
     <div v-if="this.user.loggedIn">
@@ -15,7 +15,7 @@
           </div>
           <div class="field">
             <div class="control">
-              <button class="button is-primary is-fullwidth" @click="onSubmit(form)">{{$t("comment.submit")}}</button>
+              <button class="button is-warning is-fullwidth" @click="onSubmit(form)">{{$t("comment.submit")}}</button>
             </div>
           </div>
     </div>
@@ -28,7 +28,7 @@
           <!-- 第二层回复 -->
          <div class="time">
           {{ item.published| formatDate('yyyy-MM-dd hh:mm:ss') }}
-           <button class="button is-primary is-small is-outlined"  @click="showCommentModal(item.id, item.content, 2)">{{$t("comment.reply")}}</button>
+           <button class="button is-warning is-small is-outlined"  @click="showCommentModal(item.id, item.content, 2)">{{$t("comment.reply")}}</button>
         </div>
       </div>
       <div v-for="(e, i2) in item.sub_comment" :key="i2" class="item-other">
@@ -36,7 +36,7 @@
         <!-- 第三层回复 -->
         <div class="time">
           {{ e.published| formatDate('yyyy-MM-dd hh:mm:ss') }}
-           <button class="button is-primary is-small is-outlined"  @click="showCommentModal(e.id, e.content, 3)">{{$t("comment.reply")}}</button>
+           <button class="button is-warning is-small is-outlined"  @click="showCommentModal(e.id, e.content, 3)">{{$t("comment.reply")}}</button>
         </div>
         <div v-for="(j, i3) in e.sub_comment" :key="i3" class="item-other">
           <comment-detail :comment="j"/>
@@ -67,7 +67,7 @@
           </div>
     </section>
     <footer class="modal-card-foot">
-      <button class="button is-primary" @click="onSubmit(sub_form)">{{$t("comment.submit")}}</button>
+      <button class="button is-warning" @click="onSubmit(sub_form)">{{$t("comment.submit")}}</button>
       <button class="button" @click="close()">{{$t("comment.cancle")}}</button>
     </footer>
   </div>

@@ -32,7 +32,7 @@
             >
             </b-input>
             <p class="control">
-              <b-button @click="searchBoard" class="button is-primary">Search</b-button>
+              <b-button @click="searchBoard" class="button is-warning">Search</b-button>
             </p>
           </template>
         </b-field>
