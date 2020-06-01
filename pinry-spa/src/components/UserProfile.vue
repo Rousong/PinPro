@@ -50,7 +50,7 @@
         <h1 class="title">{{$t("profile.about1")}}</h1>
          <p class="subtitle" :v-html="$t('profile.about1')">
          {{$t("profile.about2")}}<a href="https://gravatar.com" target="_blank"><strong>Gravatar</strong></a>!
-        {{$t("profile.about3")}}<a href=mailto:sample@163.com>sample@163.com</a>
+        {{$t("profile.about3")}}<a href=mailto:beaock@gmail.com>beaock@gmail.com</a>
       </p>
       </div>
       <div class="notification is-danger">

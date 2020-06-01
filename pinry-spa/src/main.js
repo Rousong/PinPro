@@ -14,7 +14,7 @@ Vue.use(VueMasonryPlugin);
 Vue.use(VueI18n);
 setUpAxiosCsrfConfig();
 Vue.use(VueAnalytics, {
-  id: 'UA-xxxx',
+  id: 'UA-125854450-2',
   router,
 });
 
