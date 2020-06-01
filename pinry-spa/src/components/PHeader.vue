@@ -17,7 +17,7 @@
         </div>
         <div id="PinryNav" class="navbar-menu" :class="{ 'is-active': active}">
           <div class="navbar-start">
-            <a class="navbar-item" :href="bookmarklet" :title="explanation">
+            <a v-if="user.loggedIn" class="navbar-item" :href="bookmarklet" :title="explanation">
               {{$t("pHeader.Bookmarklet")}}
             </a>
             <div
