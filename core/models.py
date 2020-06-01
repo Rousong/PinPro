@@ -107,7 +107,7 @@ class Pin(BaseModel):
     description = models.TextField(blank=True, null=True)
     image = models.ForeignKey(Image, on_delete=models.DO_NOTHING, related_name='pin')
     likes_num = models.IntegerField(verbose_name="点赞数", default=0)
-    tags = TaggableManager()
+    tags = TaggableManager(blank=True)
 
     def tag_list(self):
         return self.tags.all()
