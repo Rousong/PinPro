@@ -23,15 +23,15 @@ class PinAdmin(admin.ModelAdmin):
     not_passed.short_description = "未通过审核"
 
     # 遍历tag的queryset 拿出每一个的name值来显示在admin里面
-    def tag_name(self, obj):
-        return [a.name for a in obj.tags.all()]
+    # def tag_name(self, obj):
+    #     return [a.name for a in obj.tags.all()]
 
-    list_display = ('id', 'submitter', 'check', 'private', 'published', 'image_data',
-                    'likes_num', 'tag_name', 'published')
+    list_display = ('id', 'submitter', 'check', 'image_data', 'tags', 'private', 'published',
+                    'likes_num', 'published')
     # filter_horizontal = ['likes', ]
     search_fields = ['id', ]
     readonly_fields = ['image', 'image_data']
-    list_editable = ["check", ]
+    list_editable = ["check", 'tags']
     list_filter = ["check", "submitter", ]
     list_per_page = 30
 
