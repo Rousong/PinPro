@@ -72,6 +72,11 @@
     </footer>
   </div>
 </div>
+    <hr />
+  <!--Ads-->
+    <iframe src="//a.exdynsrv.com/iframe.php?idzone=3880266&size=315x300" width="315" height="300" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+    <iframe src="//a.exdynsrv.com/iframe.php?idzone=3880286&size=315x300" width="315" height="300" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+  <!--Ads-->
   </div>
 </template>
 
