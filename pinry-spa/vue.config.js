@@ -17,7 +17,7 @@ module.exports = {
     },
   },
   pwa: {
-    name: '2ZZY',
+    name: 'Do1024',
     appleMobileWebAppCapable: 'yes',
     appleMobileWebAppStatusBarStyle: 'black',
     // configure the workbox plugin

@@ -18,7 +18,7 @@ urlpatterns = [
     url(r'^api/v2/docs/', include_docs_urls(title='PINPRO', schema_url='/')),
 
     # old api and views
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^guanliyuan/', include(admin.site.urls)),
     url(r'^api/v2/profile/', include('users.urls', namespace='users')),
 ]
 
