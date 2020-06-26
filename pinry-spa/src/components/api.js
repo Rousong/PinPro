@@ -286,20 +286,32 @@ function delLike(pinId) {
   return axios.delete(url);
 }
 // 获取所有点赞列表
-function getAllLikes(page = 0, limit = 0) {
-  const url = `${API_PREFIX}like/?page=${page}&limit=${limit}`;
-  return new Promise(
-    (resolve, reject) => {
-      axios.get(url).then(
-        (resp) => {
-          resolve(resp);
-        },
-        error => reject(error),
-      );
-    },
+// function getAllLikes(page = 0, limit = 0) {
+//   const url = `${API_PREFIX}like/?page=${page}&limit=${limit}`;
+//   return new Promise(
+//     (resolve, reject) => {
+//       axios.get(url).then(
+//         (resp) => {
+//           resolve(resp);
+//         },
+//         error => reject(error),
+//       );
+//     },
+//   );
+// }
+function getAllLikes(offset) {
+  const url = `${API_PREFIX}like/`;
+  const queryArgs = {
+    format: 'json',
+    ordering: '-id',
+    limit: 30,
+    offset,
+  };
+  return axios.get(
+    url,
+    { params: queryArgs },
   );
 }
-
 // 判断是否点赞
 function checkIfLike(pinId) {
   const url = `${API_PREFIX}like/${pinId}/`;

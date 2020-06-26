@@ -145,9 +145,6 @@ export default {
       type: Object,
       default() {
         return {
-          tagFilter: null,
-          userFilter: null,
-          boardFilter: null,
           likeFilter: null,
         };
       },

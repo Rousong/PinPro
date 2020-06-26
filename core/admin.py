@@ -29,7 +29,7 @@ class PinAdmin(admin.ModelAdmin):
     list_display = ('id', 'submitter', 'check', 'private', 'published', 'image_data',
                     'likes_num', 'tag_name', 'published')
     # filter_horizontal = ['likes', ]
-    # search_fields = ['check', 'submitter',]
+    search_fields = ['id', ]
     readonly_fields = ['image', 'image_data', 'tag_name', 'tags']
     list_editable = ["check", ]
     list_filter = ["check", "submitter", ]
