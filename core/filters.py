@@ -30,16 +30,22 @@ class PinFilter(django_filters.rest_framework.FilterSet):
             # monday = (now_time - datetime.timedelta(days=day_num))
             day7 = (now_time - datetime.timedelta(days=7))  # 过去7天内的统计
             # 查询一周内的数据
-            week_pins = queryset.filter(Q(published__range=(day7, now_time)) & ~Q(likes_num=0)).order_by("likes_num")
+            week_pins = queryset.filter(Q(published__range=(day7, now_time))
+                                        & ~Q(likes_num=0)).order_by("-likes_num")[:100]
             return week_pins
         elif value == "month":
             day30 = (now_time - datetime.timedelta(days=30))  # 过去30天内的统计
-            month_pins = queryset.filter(Q(published__range=(day30, now_time)) & ~Q(likes_num=0)).order_by("likes_num")
+            month_pins = queryset.filter(Q(published__range=(day30, now_time))
+                                         & ~Q(likes_num=0)).order_by("-likes_num")[:100]
             return month_pins
         elif value == "year":
             day365 = (now_time - datetime.timedelta(days=365))  # 过去365天内的统计
-            year_pins = queryset.filter(Q(published__range=(day365, now_time)) & ~Q(likes_num=0)).order_by("likes_num")
+            year_pins = queryset.filter(Q(published__range=(day365, now_time))
+                                        & ~Q(likes_num=0)).order_by("-likes_num")[:100]
             return year_pins
+        elif value == "all":
+            all_pins = queryset.filter(~Q(likes_num=0)).order_by("-likes_num")[:100]
+            return all_pins
 
     class Meta:
         model = Pin

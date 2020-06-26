@@ -148,6 +148,7 @@ export default {
           tagFilter: null,
           userFilter: null,
           boardFilter: null,
+          rankFilter: null,
         };
       },
     },
@@ -269,6 +270,8 @@ export default {
         promise = API.fetchPins(this.status.offset, this.pinFilters.tagFilter);
       } else if (this.pinFilters.userFilter) {
         promise = API.fetchPins(this.status.offset, null, this.pinFilters.userFilter);
+      } else if (this.pinFilters.rankFilter) {
+        promise = API.fetchPins(this.status.offset, null, null, this.pinFilters.rankFilter);
       } else if (this.pinFilters.boardFilter) {
         promise = new Promise(
           (resolve, reject) => {

@@ -7,27 +7,37 @@
              :class="{'is-active':position === index}"><a>{{item}}</a></li>
       </ul>
     </div>
+    <Pins :pin-filters="filters"></Pins>
   </div>
 </template>
 
 <script>
 import PHeader from '../components/PHeader.vue';
+import Pins from '../components/Pins.vue';
 
 export default {
   name: 'Home',
   data() {
     return {
-      menuItems: ['本周', '本月', '本年', '全部'],
+      menuItems: {
+        week: '本周', month: '本月', year: '本年', all: '全部',
+      },
       position: '',
+      filters: { rankFilter: null },
     };
   },
   components: {
     PHeader,
+    Pins,
   },
   methods: {
     addClass(index) {
       this.position = index;
+      this.filters = { rankFilter: index };
     },
+  },
+  created() {
+    this.addClass('week');
   },
 };
 </script>

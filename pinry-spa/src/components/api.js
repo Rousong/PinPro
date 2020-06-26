@@ -111,7 +111,7 @@ const Pin = {
 };
 
 
-function fetchPins(offset, tagFilter, userFilter, ranking) {
+function fetchPins(offset, tagFilter, userFilter, rankFilter) {
   const url = `${API_PREFIX}pins/`;
   const queryArgs = {
     format: 'json',
@@ -121,7 +121,7 @@ function fetchPins(offset, tagFilter, userFilter, ranking) {
   };
   if (tagFilter) queryArgs.tags__name = tagFilter;
   if (userFilter) queryArgs.submitter__username = userFilter;
-  if (ranking) queryArgs.top_liked = ranking;
+  if (rankFilter) queryArgs.top_liked = rankFilter;
   return axios.get(
     url,
     { params: queryArgs },

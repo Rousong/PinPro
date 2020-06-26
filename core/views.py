@@ -27,7 +27,7 @@ class PinViewSet(viewsets.ModelViewSet):
     # filter_fields = ("submitter__username", 'tags__name', )
     filter_class = PinFilter
     ordering_fields = ('-id', )
-    ordering = ('-id', )
+    # ordering = ('-id', ) # 默认排序，这里指定了的话filter里面就不可以切片
     permission_classes = [IsOwnerOrReadOnly("submitter"), OwnerOnlyIfPrivate("submitter"),]
 
     def get_queryset(self):
