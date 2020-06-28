@@ -10,6 +10,6 @@ then
     exit 1
 fi
 
-sudo docker run -d=true -p=1223:80 \
+sudo docker run -d=true -p=1333:80 \
     -v=${DATA_PATH}:/data \
     pinry/pinry
