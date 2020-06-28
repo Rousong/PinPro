@@ -138,7 +138,7 @@ API_LIMIT_PER_PAGE = 50
 IMAGE_PATH = 'core.utils.upload_path'
 
 IMAGE_SIZES = {
-    'thumbnail': {'size': [300, 0]},
+    'thumbnail': {'size': [240, 0]},
     'standard': {'size': [600, 0]},
     'square': {'crop': True, 'size': [125, 125]},
 }

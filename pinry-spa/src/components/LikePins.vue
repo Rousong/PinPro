@@ -301,26 +301,10 @@ export default {
       .grid-sizer,
       .grid-item { width: 48%;}
   }
-// @media screen and (min-width: 400px) {
-//       .grid-sizer,
-//       .grid-item { width: 48%; }
-  // }
 @media screen and (min-width: 798px) {
        .grid-sizer,
-       .grid-item { width: 32%; }
+       .grid-item { width: $pin-preview-width; }
    }
-// @media screen and (min-width: 700px) {
-//       .grid-sizer,
-//       .grid-item { width: 28%; }
-//   }
-@media screen and (min-width: 1053px) {
-      .grid-sizer,
-      .grid-item { width: 24%; }
-  }
-@media screen and (min-width: 1300px) {
-      .grid-sizer,
-      .grid-item { width: 15.8%; }
-  }
 
 .section {
   padding: 1rem 0.5rem
