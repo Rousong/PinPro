@@ -14,3 +14,18 @@ cd 到pinry目录下
 python manage.py createsuperuser  来创建管理员用户
 
 地址/admin 进入后台
+
+
+---------------------------
+
+服务器更新代码后release：
+
+先pull最新代码，
+到docker目录下，build docker的bash执行
+然后执行相同目录下的start docker
+注意，执行一定要带上data目录的参数：./start_docker.sh `readlink -f data`
+
+# this is where your database, local_settings and pins located
+mkdir data
+# use absolute path for docker to avoid using default data-volume (we use directory instead)
+./start_docker.sh `readlink -f data`
