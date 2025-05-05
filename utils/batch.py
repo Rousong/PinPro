@@ -2,12 +2,12 @@ import os
 import coreapi
 
 # Initialize a client & load the schema document
-auth = coreapi.auth.BasicAuthentication("ceshi1", "qq11111")  # 上传需要用户验证 填写你的用户名和密码
+auth = coreapi.auth.BasicAuthentication("beaock", "yzk11111")  # 上传需要用户验证 填写你的用户名和密码
 client = coreapi.Client(auth=auth)
 schema = client.get("http://127.0.0.1:8000/api/v2/docs")  # API文档
 
-ADD_TO_BOARD = True # 是否加分类的开关 开是True 关闭则是False
-BOARD_ID = 20 # 要添加到哪个分类ID下
+ADD_TO_BOARD = False # 是否加分类的开关 开是True 关闭则是False
+BOARD_ID = 1 # 要添加到哪个分类ID下
 
 # Interact with the API endpoint
 action = ["pins", "create"]
@@ -17,7 +17,7 @@ params = {
     "url": "",  # 这里填写图片的url
     "description": "",
     "referer": "",
-    "tags": ['xx','xx','xx','xx',],  # 这里是标签，需要列表格式
+    "tags": ['文艺', 'colorful', '小清新'],  # 这里是标签，需要列表格式
 }
 
 # 获取绝对路径
